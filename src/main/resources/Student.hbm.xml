@@ -15,5 +15,6 @@
             <column name="LASTNAME" />
         </property>
         <one-to-one name="account" class="com.roshankhatri.neccps.model.Account" cascade="save-update"/>
+        <one-to-one name="thesis" class="com.roshankhatri.neccps.model.Thesis" cascade="save-update"/>
     </class>
 </hibernate-mapping>

@@ -32,6 +32,8 @@
 		<property name="mappingResources">
 			<list>
 				<value>Student.hbm.xml</value>
+				<value>Account.hbm.xml</value>
+				<value>Thesis.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

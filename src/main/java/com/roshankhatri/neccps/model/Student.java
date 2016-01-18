@@ -5,6 +5,7 @@ public class Student {
 	private String firstname;
 	private String lastname;
 	private Account account;
+	private Thesis thesis;
 	
 	public long getId() {
 		return id;
@@ -29,6 +30,12 @@ public class Student {
 	}
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+	public Thesis getThesis() {
+		return thesis;
+	}
+	public void setThesis(Thesis thesis) {
+		this.thesis = thesis;
 	}
 
 }
