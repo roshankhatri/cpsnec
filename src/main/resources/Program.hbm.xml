@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 18, 2016 11:54:58 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.Program" table="PROGRAM">
+        <id name="id" type="long">
+            <column name="PROGRAM_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="programName" type="java.lang.String">
+            <column name="PROGRAMNAME" />
+        </property>
+        <set name="batches" table="BATCH" inverse="true" lazy="true" cascade="save-update">
+            <key>
+                <column name="PROGRAM_ID" />
+            </key>
+            <one-to-many class="com.roshankhatri.neccps.model.Batch" />
+        </set>
+    </class>
+</hibernate-mapping>

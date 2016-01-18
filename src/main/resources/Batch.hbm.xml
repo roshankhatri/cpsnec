@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 18, 2016 11:54:58 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.Batch" table="BATCH">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="batchYear" type="java.lang.String">
+            <column name="BATCHYEAR" />
+        </property>
+        <property name="batchIntake" type="java.lang.String">
+            <column name="BATCHINTAKE" />
+        </property>
+        <many-to-one name="program" class="com.roshankhatri.neccps.model.Program" fetch="join">
+            <column name="PROGRAM_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
