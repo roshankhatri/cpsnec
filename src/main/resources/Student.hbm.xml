@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="com.roshankhatri.neccps.model.Student" table="student">
         <id name="id" type="long">
-            <column name="ID" />
+            <column name="STUDENT_ID" />
             <generator class="identity" />
         </id>
         <property name="firstname" type="java.lang.String">
@@ -14,5 +14,6 @@
         <property name="lastname" type="java.lang.String">
             <column name="LASTNAME" />
         </property>
+        <one-to-one name="account" class="com.roshankhatri.neccps.model.Account" cascade="save-update"/>
     </class>
 </hibernate-mapping>

@@ -4,6 +4,7 @@ public class Student {
 	private long id;
 	private String firstname;
 	private String lastname;
+	private Account account;
 	
 	public long getId() {
 		return id;
@@ -22,6 +23,12 @@ public class Student {
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 }
