@@ -5,6 +5,7 @@ public class Batch {
 	private String batchYear;
 	private String batchIntake;
 	private Program program;
+	private Semester semester;
 	
 	public Batch() {
 	}
@@ -39,5 +40,13 @@ public class Batch {
 	}
 	public void setProgram(Program program) {
 		this.program = program;
+	}
+
+	public Semester getSemester() {
+		return semester;
+	}
+
+	public void setSemester(Semester semester) {
+		this.semester = semester;
 	}
 }

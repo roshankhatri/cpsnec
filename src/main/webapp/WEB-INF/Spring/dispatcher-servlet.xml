@@ -36,6 +36,7 @@
 				<value>Thesis.hbm.xml</value>
 				<value>Program.hbm.xml</value>
 				<value>Batch.hbm.xml</value>
+				<value>Semester.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

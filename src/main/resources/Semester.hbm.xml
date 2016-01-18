@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 18, 2016 12:21:45 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.Semester" table="SEMESTER">
+        <id name="id" type="long">
+            <column name="BATCH_ID" />
+            <generator class="foreign">
+            	<param name="property">batch</param>
+            </generator>
+        </id>
+        <property name="semesteYear" type="long">
+            <column name="SEMESTEYEAR" />
+        </property>
+        <property name="semesterSession" type="java.lang.String">
+            <column name="SEMESTERSESSION" />
+        </property>
+        <one-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" constrained="true"/>
+    </class>
+</hibernate-mapping>
