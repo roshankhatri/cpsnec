@@ -10,11 +10,10 @@ public class Batch {
 	public Batch() {
 	}
 	
-	public Batch(String batchYear, String batchIntake, Program program) {
+	public Batch(String batchYear, String batchIntake) {
 		super();
 		this.batchYear = batchYear;
 		this.batchIntake = batchIntake;
-		this.program = program;
 	}
 
 	public long getId() {

@@ -26,5 +26,9 @@ public class Program {
 	public void setBatches(Set<Batch> batches) {
 		this.batches = batches;
 	}
+	public void addBatch(Batch batchItem){
+		batchItem.setProgram(this);
+		batches.add(batchItem);
+	}
 
 }

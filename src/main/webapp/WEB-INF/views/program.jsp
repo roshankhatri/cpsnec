@@ -1,20 +1,17 @@
 <%@ include file="includes/header.jsp"%>
+<!--panel starts  -->
 <div class="panel panel-primary">
 	<div class="panel-heading">Program Information</div>
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/Student/" commandName="student">
+		<form:form method="POST" action="/neccps/Program/" commandName="program">
 			<div class="form-group">
-				<form:label path="firstname">First Name</form:label>
-				<form:input path="firstname" cssClass="form-control" />
+				<form:label path="programName">Program Name</form:label>
+				<form:input path="programName" cssClass="form-control" />
 			</div>
 			<div class="form-group">
-				<form:label path="lastname">Last Name</form:label>
-				<form:input path="lastname" cssClass="form-control" />
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-default">Submit</button>
 			</div>
 			<!-- form ends here -->
 		</form:form>
