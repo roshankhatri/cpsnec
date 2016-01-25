@@ -5,7 +5,7 @@
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/savepg" commandName="batch">
+		<form:form method="POST" action="/neccps/Program/addBatch" commandName="batch">
 			<div class="form-group">
 				<form:label path="batchYear">Batch Year</form:label>
 				<form:input path="batchYear" cssClass="form-control" />

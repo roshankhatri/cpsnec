@@ -15,7 +15,7 @@
       <tr>
       <td><c:out value="${program.id}"/></td>
       <td><c:out value="${program.programName}"/></td>
-      <td><a href='<c:url value="addbatch/${program.id}"></c:url>'>Add Batch</a></td>
+      <td><a href='<c:url value="addBatch/${program.id}"></c:url>'>Add Batch</a></td>
       </tr>
       </c:forEach>
     </tbody>

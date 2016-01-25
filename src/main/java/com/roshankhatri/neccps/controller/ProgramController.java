@@ -49,7 +49,7 @@ public class ProgramController {
 		
 	}
 	
-	@RequestMapping(value="/addbatch/{programid}",method=RequestMethod.GET)
+	@RequestMapping(value="/addBatch/{programid}",method=RequestMethod.GET)
 	public String addbatch(@PathVariable long programid,Model model){
 		model.addAttribute("program",programDao.getById(programid));
 		Batch batch=new Batch();
@@ -58,7 +58,7 @@ public class ProgramController {
 		return "batchesadd";
 	}
 	
-	@RequestMapping("/savepg")
+	@RequestMapping(value="/addBatch",method=RequestMethod.POST)
 	public String tests(@ModelAttribute("batch") Batch batch,HttpSession session){
 		
 		Program program=(Program)session.getAttribute("program");
