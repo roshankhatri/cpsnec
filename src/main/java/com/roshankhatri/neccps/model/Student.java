@@ -6,6 +6,7 @@ public class Student {
 	private String lastname;
 	private Account account;
 	private Thesis thesis;
+	private Batch batch;
 	
 	public long getId() {
 		return id;
@@ -36,6 +37,12 @@ public class Student {
 	}
 	public void setThesis(Thesis thesis) {
 		this.thesis = thesis;
+	}
+	public Batch getBatch() {
+		return batch;
+	}
+	public void setBatch(Batch batch) {
+		this.batch = batch;
 	}
 
 }

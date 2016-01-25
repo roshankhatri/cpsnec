@@ -8,6 +8,6 @@ public interface ProgramDao {
 	long save(Program program);
 	List<Program> listall();
 	Program getById(long id);
-	void update(Program program);
+	long update(Program program);
 
 }

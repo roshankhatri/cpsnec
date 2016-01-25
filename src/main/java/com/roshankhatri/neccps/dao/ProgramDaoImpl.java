@@ -53,11 +53,13 @@ public class ProgramDaoImpl implements ProgramDao {
 	}
 
 	@Override
-	public void update(Program program) {
+	public long update(Program program) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
+		long id=(long) program.getId();
 		session.update(program);
 		transaction.commit();
+		return id;
 	}
 
 }

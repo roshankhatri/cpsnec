@@ -8,6 +8,7 @@
         <th>S.No</th>
         <th>Program Name</th>
         <th>Batches</th>
+        <th>show batches</th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
       <td><c:out value="${program.id}"/></td>
       <td><c:out value="${program.programName}"/></td>
       <td><a href='<c:url value="addbatch/${program.id}"></c:url>'>Add Batch</a></td>
+      <td><a href='<c:url value="showbatch"></c:url>'>Show Batch</a></td>
       </tr>
       </c:forEach>
     </tbody>

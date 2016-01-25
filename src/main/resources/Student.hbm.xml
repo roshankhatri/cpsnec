@@ -16,5 +16,8 @@
         </property>
         <one-to-one name="account" class="com.roshankhatri.neccps.model.Account" cascade="save-update"/>
         <one-to-one name="thesis" class="com.roshankhatri.neccps.model.Thesis" cascade="save-update"/>
+        <many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" fetch="join">
+        	<column name="BATCH_ID"></column>
+        </many-to-one>
     </class>
 </hibernate-mapping>
