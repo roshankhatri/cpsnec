@@ -1,5 +1,6 @@
 package com.roshankhatri.neccps.model;
 
+
 public class Semester {
 	private long id;
 	private long semesteYear;

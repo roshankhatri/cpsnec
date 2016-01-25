@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+ <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Nepal Engineering College CPS</title>
 <link rel="stylesheet" href='<spring:url value="/resources/css/bootstrap/css/bootstrap.min.css"></spring:url>'>
+<link rel="stylesheet" href='<spring:url value="/resources/css/bootstrap/css/custom.css"></spring:url>'>
 </head>
-<body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -23,8 +25,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href='<c:url value="/Student/"></c:url>'>Student</a></li>
+            <li><a href='<c:url value="/Program/"></c:url>'>Program</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -44,4 +46,5 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-<div class="container"></div>
+<body>
+<div class="container" id="top">
