@@ -8,5 +8,6 @@ public interface StudentDao {
 	long save(Student student);
 	Student getById(long id);
 	List<Student> getall();
+	List<Student> getByBatchId(long BatchId);
 
 }

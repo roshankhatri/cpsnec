@@ -1,7 +1,7 @@
 <%@ include file="includes/header.jsp"%>
 <!--panel starts  -->
 <div class="panel panel-primary">
-	<div class="panel-heading">Batch Information</div>
+	<div class="panel-heading">Batch Information Program: ${program.programName}</div>
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->

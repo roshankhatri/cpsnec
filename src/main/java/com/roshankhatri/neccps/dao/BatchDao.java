@@ -8,6 +8,7 @@ public interface BatchDao {
 	long save(Batch batch);
 	List<Batch> listall(long programId);
 	Batch getById(long id);
-//	long update(Program program);
+	long update(Batch batch);
+	List<Batch> listAllWithoutProgram();
 
 }

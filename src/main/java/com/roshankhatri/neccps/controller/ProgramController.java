@@ -30,39 +30,41 @@ public class ProgramController {
 	
 	@Autowired BatchDao batchDao;
 	
+	//new program get form	
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String home(Model model){
 		model.addAttribute("program", new Program());
 		return "program";
 	}
 	
+	//new program post form
 	@RequestMapping(value="/",method=RequestMethod.POST)
 	public String h1(@ModelAttribute("program") Program program){
-		System.out.println(program.getProgramName().toString());
-		long id=programDao.save(program);
+		programDao.save(program);
 		return "redirect:/Program/list";
 	}
 	
+	//all programs list 
 	@RequestMapping(value="/list")
 	public String listall(Model model){
 		List<Program> pgms=programDao.listall();
-		for (Program program : pgms) {
-			System.out.println(program.getProgramName());
-		}
 		model.addAttribute("programs", pgms);
 		return "programall";
 		
 	}
 	
+	//add batch to program when program id is passed get form
 	@RequestMapping(value="/addBatch/{programid}",method=RequestMethod.GET)
 	public String addbatch(@PathVariable long programid,Model model){
 		model.addAttribute("program",programDao.getById(programid));
 		Batch batch=new Batch();
 		programDao.getById(programid).addBatch(batch);
+		model.addAttribute("program", programDao.getById(programid));
 		model.addAttribute("batch", new Batch());
 		return "batchesadd";
 	}
 	
+	//add batch to program when program id is passed through session post
 	@RequestMapping(value="/addBatch",method=RequestMethod.POST)
 	public String tests(@ModelAttribute("batch") Batch batch,HttpSession session){
 		
@@ -70,9 +72,12 @@ public class ProgramController {
 		program.addBatch(batch);
 		long id=programDao.update(program);
 		System.out.println(program.getProgramName().toString());
-		return "redirect:/Program/Batch/addStudent/"+id;
+		return "redirect:/Program/list";
+		//return "redirect:/Program/showBatch";
+		//return "redirect:/Program/Batch/addStudent/"+id;
 	}
 	
+	//show batches when program id is passed
 	@RequestMapping(value="/showBatch/{programId}",method=RequestMethod.GET)
 	public String getallabtches(Model model,@PathVariable("programId") long programId){
 		List<Batch> batches=batchDao.listall(programId);
@@ -82,6 +87,15 @@ public class ProgramController {
 		return "batchesall1";
 	}
 	
+	//show batches when no program id is passed
+		@RequestMapping(value="/showBatch",method=RequestMethod.GET)
+		public String getallabtcheswithoutprograms(Model model){
+			List<Batch> batches=batchDao.listAllWithoutProgram();
+			model.addAttribute("batches", batches);
+			return "batchesall";
+		}
+		
+
 	@RequestMapping(value="/Batch/addStudent/{batchId}",method=RequestMethod.GET)
 	public String addstudent(Model model,@PathVariable long batchId){
 		model.addAttribute("batchId", batchId);
@@ -96,9 +110,5 @@ public class ProgramController {
 		batchDao.save(batch);
 		return "redirect:/Student/list";
 		
-	}
-	@RequestMapping("/testing")
-	public String test1(){
-		return null;
 	}
 }
