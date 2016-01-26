@@ -37,6 +37,7 @@
 				<value>Program.hbm.xml</value>
 				<value>Batch.hbm.xml</value>
 				<value>Semester.hbm.xml</value>
+				<value>Course.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -44,7 +45,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.current_session_context_class">thread</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
 			</props>
 		</property>
 	</bean>
@@ -61,6 +62,9 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 		
+	<bean id="semesterDao" class="com.roshankhatri.neccps.dao.SemesterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 	<context:component-scan base-package="com.roshankhatri.neccps"/>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />

@@ -12,6 +12,7 @@
 							<th>Batches</th>
 							<th>Add Student</th>
 							<th>View Students</th>
+							<th>Add Semester</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -26,6 +27,9 @@
 								<td><a
 									href='<c:url value="/Batch/showStudent/${batch.id}"></c:url>'>Show
 										Student</a></td>
+								<td><a
+									href='<c:url value="/Batch/addSemester/${batch.id}"></c:url>'>Add
+										Semester</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -1,5 +1,7 @@
 package com.roshankhatri.neccps.model;
 
+import java.util.Set;
+
 public class Student {
 	private long id;
 	private String firstname;
@@ -7,6 +9,7 @@ public class Student {
 	private Account account;
 	private Thesis thesis;
 	private Batch batch;
+	private Set<Course> courses;
 	
 	public long getId() {
 		return id;
@@ -43,6 +46,12 @@ public class Student {
 	}
 	public void setBatch(Batch batch) {
 		this.batch = batch;
+	}
+	public Set<Course> getCourses() {
+		return courses;
+	}
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
 	}
 
 }

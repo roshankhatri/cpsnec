@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.roshankhatri.neccps.dao.BatchDao;
+import com.roshankhatri.neccps.dao.SemesterDao;
 import com.roshankhatri.neccps.dao.StudentDao;
 import com.roshankhatri.neccps.model.Batch;
+import com.roshankhatri.neccps.model.Semester;
 import com.roshankhatri.neccps.model.Student;
 
 @Controller
@@ -29,12 +31,16 @@ public class BatchController {
 
 	@Autowired
 	private StudentDao studentDao;
+	
+	@Autowired
+	private SemesterDao semesterDao;
 
 	@RequestMapping(value = "/addStudent/{batchId}", method = RequestMethod.GET)
 	public String addStudentGet(Model model, @PathVariable long batchId) {
 		model.addAttribute("batch", batchDao.getById(batchId));
-		model.addAttribute("program",batchDao.getById(batchId).getProgram().getProgramName());
-		Student student=new Student();
+		model.addAttribute("program", batchDao.getById(batchId).getProgram()
+				.getProgramName());
+		Student student = new Student();
 		batchDao.getById(batchId).addStudent(student);
 		model.addAttribute("student", new Student());
 		model.addAttribute("batch", batchDao.getById(batchId));
@@ -42,17 +48,18 @@ public class BatchController {
 	}
 
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-	public String addStudentPost(@ModelAttribute("student") Student student,HttpSession session,SessionStatus status) {
-			Batch batch=(Batch)session.getAttribute("batch");
-			long batchId=batch.getId();
-			batch.addStudent(student);
-			batchDao.update(batch);
-			status.setComplete();
-			return "redirect:/Batch/showStudent/"+batchId;
+	public String addStudentPost(@ModelAttribute("student") Student student,
+			HttpSession session, SessionStatus status) {
+		Batch batch = (Batch) session.getAttribute("batch");
+		long batchId = batch.getId();
+		batch.addStudent(student);
+		batchDao.update(batch);
+		status.setComplete();
+		return "redirect:/Batch/showStudent/" + batchId;
 	}
 
 	@RequestMapping(value = "/showStudent/{batchId}", method = RequestMethod.GET)
-	public String showStudents(Model model,@PathVariable long batchId) {
+	public String showStudents(Model model, @PathVariable long batchId) {
 		Batch batch = batchDao.getById(batchId);
 		List<Student> students = studentDao.getByBatchId(batch.getId());
 		model.addAttribute("program", batch.getProgram().getProgramName());
@@ -60,4 +67,26 @@ public class BatchController {
 		model.addAttribute("batch", batch);
 		return "batch/studentlist";
 	}
+
+	@RequestMapping(value = "/addSemester/{batchId}", method = RequestMethod.GET)
+	public String addSemesterGet(Model model, @PathVariable long batchId) {
+		model.addAttribute("batch", batchDao.getById(batchId));
+		model.addAttribute("program", batchDao.getById(batchId).getProgram()
+				.getProgramName());
+		Semester semester = new Semester();
+		model.addAttribute("semester", semester);
+		return "semester/semesternew";
+	}
+	@RequestMapping(value = "/addSemester", method = RequestMethod.POST)
+	public String addStudentPost(@ModelAttribute("semester") Semester semester,
+			HttpSession session, SessionStatus status) {
+		Batch batch = (Batch) session.getAttribute("batch");
+		batch.setSemester(semester);
+		semester.setBatch(batch);
+		batchDao.update(batch);
+		//semesterDao.save(semester);
+		status.setComplete();
+		return null;
+	}
+
 }

@@ -1,17 +1,18 @@
 package com.roshankhatri.neccps.model;
 
+import java.util.Set;
+
 public class Course {
 	private long id;
 	private String courseName;
 	private int courseCredit;
-	private Semester semester;
+	private Set<Student> students;
 	
 	public Course() {
 	}
-	public Course(String courseName, int courseCredit, Semester semester) {
+	public Course(String courseName, int courseCredit) {
 		this.courseName = courseName;
 		this.courseCredit = courseCredit;
-		this.semester = semester;
 	}
 	public long getId() {
 		return id;
@@ -31,11 +32,11 @@ public class Course {
 	public void setCourseCredit(int courseCredit) {
 		this.courseCredit = courseCredit;
 	}
-	public Semester getSemester() {
-		return semester;
+	public Set<Student> getStudents() {
+		return students;
 	}
-	public void setSemester(Semester semester) {
-		this.semester = semester;
+	public void setStudents(Set<Student> students) {
+		this.students = students;
 	}
 	
 }

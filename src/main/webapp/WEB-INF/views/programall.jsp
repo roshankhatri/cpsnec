@@ -18,8 +18,15 @@
 						<td><c:out value="${program.programName}" /></td>
 						<td><a href='<c:url value="addBatch/${program.id}"></c:url>'>Add
 								Batch</a></td>
-						<td><a href='<c:url value="showBatch/${program.id}"></c:url>'>Show
-								Batch</a></td>
+						<td>
+						<c:choose>
+							<c:when test="${!empty program.batches}">
+								<a
+									href='<c:url value="showBatch/${program.id}"></c:url>'>Show
+										Batch</a>
+							</c:when>
+						</c:choose>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -3,21 +3,34 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Jan 14, 2016 2:17:37 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.roshankhatri.neccps.model.Student" table="student">
-        <id name="id" type="long">
-            <column name="STUDENT_ID" />
-            <generator class="identity" />
-        </id>
-        <property name="firstname" type="java.lang.String">
-            <column name="FIRSTNAME" />
-        </property>
-        <property name="lastname" type="java.lang.String">
-            <column name="LASTNAME" />
-        </property>
-        <one-to-one name="account" class="com.roshankhatri.neccps.model.Account" cascade="save-update"/>
-        <one-to-one name="thesis" class="com.roshankhatri.neccps.model.Thesis" cascade="save-update"/>
-        <many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" fetch="join">
-        	<column name="BATCH_ID"></column>
-        </many-to-one>
-    </class>
+	<class name="com.roshankhatri.neccps.model.Student" table="student">
+		<id name="id" type="long">
+			<column name="STUDENT_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="firstname" type="java.lang.String">
+			<column name="FIRSTNAME" />
+		</property>
+		<property name="lastname" type="java.lang.String">
+			<column name="LASTNAME" />
+		</property>
+		<one-to-one name="account" class="com.roshankhatri.neccps.model.Account"
+			cascade="save-update" />
+		<one-to-one name="thesis" class="com.roshankhatri.neccps.model.Thesis"
+			cascade="save-update" />
+		<many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch"
+			fetch="join">
+			<column name="BATCH_ID"></column>
+		</many-to-one>
+		<set name="courses" table="STUDENT_COURSES" fetch="select"
+			cascade="all">
+			<key>
+				<column name="STUDENT_ID" />
+			</key>
+			<many-to-many class="com.roshankhatri.neccps.model.Course"
+				column="COURSE_ID" />
+
+
+		</set>
+	</class>
 </hibernate-mapping>

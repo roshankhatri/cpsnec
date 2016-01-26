@@ -10,12 +10,12 @@
             	<param name="property">batch</param>
             </generator>
         </id>
-        <property name="semesteYear" type="long">
-            <column name="SEMESTEYEAR" />
+        <property name="semesterYear" type="long">
+            <column name="SEMESTERYEAR" />
         </property>
         <property name="semesterSession" type="java.lang.String">
             <column name="SEMESTERSESSION" />
         </property>
-        <one-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" constrained="true"/>
+        <one-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" constrained="true" cascade="save-update"/>
     </class>
 </hibernate-mapping>

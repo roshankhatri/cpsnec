@@ -3,7 +3,7 @@ package com.roshankhatri.neccps.model;
 
 public class Semester {
 	private long id;
-	private long semesteYear;
+	private long semesterYear;
 	private String semesterSession;
 	private Batch batch;
 	
@@ -13,11 +13,11 @@ public class Semester {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public long getSemesteYear() {
-		return semesteYear;
+	public long getSemesterYear() {
+		return semesterYear;
 	}
-	public void setSemesteYear(long semesteYear) {
-		this.semesteYear = semesteYear;
+	public void setSemesterYear(long semesterYear) {
+		this.semesterYear = semesterYear;
 	}
 	public String getSemesterSession() {
 		return semesterSession;
