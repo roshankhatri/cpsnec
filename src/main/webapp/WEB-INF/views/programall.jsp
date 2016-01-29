@@ -2,6 +2,7 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">All Programs List</div>
 	<div class="panel-body">
+	<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add More Programs</button></a>
 		<table class="table table-striped">
 			<thead>
 				<tr>
