@@ -5,13 +5,18 @@
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/Program/" commandName="program">
+		<form:form method="POST" action="/neccps/Program/"
+			commandName="program">
 			<div class="form-group">
 				<form:label path="programName">Program Name</form:label>
 				<form:input path="programName" cssClass="form-control" />
+				<div class="top">
+					<form:errors path="programName" cssClass="alert alert-info"
+						element="div" />
+				</div>
 			</div>
 			<div class="form-group">
-			<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-default">Submit</button>
 			</div>
 			<!-- form ends here -->
 		</form:form>
