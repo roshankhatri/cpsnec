@@ -1,13 +1,14 @@
 package com.roshankhatri.neccps.model;
 
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class Account {
 	private long id;
 	private long payableDues;
-	private long paidDues;
-	private Date lastPaid;
 	private Student student;
+	private Set<AccountPayment> payments=new HashSet<AccountPayment>();
 	
 	public long getId() {
 		return id;
@@ -21,22 +22,16 @@ public class Account {
 	public void setPayableDues(long payableDues) {
 		this.payableDues = payableDues;
 	}
-	public long getPaidDues() {
-		return paidDues;
-	}
-	public void setPaidDues(long paidDues) {
-		this.paidDues = paidDues;
-	}
-	public Date getLastPaid() {
-		return lastPaid;
-	}
-	public void setLastPaid(Date lastPaid) {
-		this.lastPaid = lastPaid;
-	}
 	public Student getStudent() {
 		return student;
 	}
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+	public Set<AccountPayment> getPayments() {
+		return payments;
+	}
+	public void setPayments(Set<AccountPayment> payments) {
+		this.payments = payments;
 	}
 }

@@ -13,12 +13,13 @@
         <property name="payableDues" type="long">
             <column name="PAYABLEDUES" />
         </property>
-        <property name="paidDues" type="long">
-            <column name="PAIDDUES" />
-        </property>
-        <property name="lastPaid" type="java.util.Date">
-            <column name="LASTPAID" />
-        </property>
         <one-to-one name="student" class="com.roshankhatri.neccps.model.Student" constrained="true"/>
+        <set name="payments" table="ACCOUNTPAYMENT" inverse="true" lazy="false">
+        	<key>
+        		<column name="STUDENT_ID"></column>
+        	</key>
+        	<one-to-many class="com.roshankhatri.neccps.model.AccountPayment"/>
+        
+        </set>
     </class>
 </hibernate-mapping>

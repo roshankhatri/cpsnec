@@ -29,8 +29,6 @@
 			</key>
 			<many-to-many class="com.roshankhatri.neccps.model.Course"
 				column="COURSE_ID" />
-
-
 		</set>
 	</class>
 </hibernate-mapping>

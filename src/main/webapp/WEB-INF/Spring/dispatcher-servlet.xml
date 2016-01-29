@@ -38,6 +38,7 @@
 				<value>Batch.hbm.xml</value>
 				<value>Semester.hbm.xml</value>
 				<value>Course.hbm.xml</value>
+				<value>AccountPayment.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
