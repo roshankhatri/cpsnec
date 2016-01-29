@@ -14,7 +14,7 @@
             <column name="PAYABLEDUES" />
         </property>
         <one-to-one name="student" class="com.roshankhatri.neccps.model.Student" constrained="true"/>
-        <set name="payments" table="ACCOUNTPAYMENT" inverse="true" lazy="false">
+        <set name="payments" table="ACCOUNTPAYMENT" inverse="true" lazy="false" cascade="save-update">
         	<key>
         		<column name="STUDENT_ID"></column>
         	</key>

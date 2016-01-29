@@ -8,7 +8,7 @@
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/" access="permitAll"/>
 		<security:intercept-url pattern="/Program/**" access="hasRole('DBA') or hasRole('ADMIN')"/>
-		<security:intercept-url pattern="/Batch/**" access="hasRole('COORDINATOR')"/>
+		<security:intercept-url pattern="/Batch/**" access="hasRole('COORDINATOR') or hasRole('ADMIN')"/>
 		<security:form-login authentication-failure-url="/Access_Denied" />
 		<security:logout logout-success-url="/"/>
 	</security:http>

@@ -34,4 +34,9 @@ public class Account {
 	public void setPayments(Set<AccountPayment> payments) {
 		this.payments = payments;
 	}
+	public void addAccountPayment(AccountPayment accountPaymentItem) {
+		accountPaymentItem.setAccount(this);
+		payments.add(accountPaymentItem);
+		
+	}
 }

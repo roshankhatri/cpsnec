@@ -10,6 +10,7 @@
         <th>S.No</th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Add Account</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
       <td><c:out value="${thecount.count}"/></td>
       <td><c:out value="${student.firstname}"/></td>
       <td><c:out value="${student.lastname}"/></td>
+      <td><a href='<spring:url value="/Account/newAccount/${student.id}"></spring:url>'>Create Account</a></td>
       </tr>
       </c:forEach>
     </tbody>
