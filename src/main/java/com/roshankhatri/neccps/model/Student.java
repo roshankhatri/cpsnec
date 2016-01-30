@@ -7,6 +7,7 @@ public class Student {
 	private String firstname;
 	private String lastname;
 	private Account account;
+	private Library library;
 	private Thesis thesis;
 	private Batch batch;
 	private Set<Course> courses;
@@ -52,6 +53,12 @@ public class Student {
 	}
 	public void setCourses(Set<Course> courses) {
 		this.courses = courses;
+	}
+	public Library getLibrary() {
+		return library;
+	}
+	public void setLibrary(Library library) {
+		this.library = library;
 	}
 
 }

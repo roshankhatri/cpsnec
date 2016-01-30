@@ -3,8 +3,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,11 +45,20 @@
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<c:url value="#" />"><span
-						class="glyphicon glyphicon-user"> </span></a></li>
-				<li><a href="<c:url value="/logout" />"><span
-						class="glyphicon glyphicon-log-out"> </span> Logout</a></li>
-			
+			<sec:authorize access="authenticated" var="authenticated" />
+			<c:choose>
+				<c:when test="${authenticated}">
+					<li><a href="<c:url value="#" />"> Welcome <span
+						class="glyphicon glyphicon-user"> </span> <sec:authentication property="name"/>
+						</a></li>
+					<li><a href="<c:url value="/logout" />"><span
+						class="glyphicon glyphicon-log-out"> </span> Logout</a></li>	
+				</c:when>
+				<c:otherwise>
+					<li><a href="<c:url value="/login" />"><span
+						class="glyphicon glyphicon-log-in"> </span> LogIn</a></li>	
+				</c:otherwise>
+			</c:choose>			
 			</ul>
 		</div>
 		<!--/.nav-collapse -->

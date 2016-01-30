@@ -43,6 +43,8 @@
 				<value>Semester.hbm.xml</value>
 				<value>Course.hbm.xml</value>
 				<value>AccountPayment.hbm.xml</value>
+				<value>Library.hbm.xml</value>
+				<value>LibraryIssueReturn.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

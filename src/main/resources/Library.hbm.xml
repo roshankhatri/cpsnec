@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 30, 2016 12:55:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.Library" table="LIBRARY">
+        <id name="id" type="long">
+            <column name="STUDENT_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="libraryTotal" type="long">
+            <column name="LIBRARYTOTAL" />
+        </property>
+        <one-to-one name="student" class="com.roshankhatri.neccps.model.Student" constrained="true"/>
+        <set name="libraryIssueReturns" table="LIBRARYISSUERETURN" inverse="true" lazy="false" cascade="save-update">
+            <key>
+                <column name="STUDENT_ID" />
+            </key>
+            <one-to-many class="com.roshankhatri.neccps.model.LibraryIssueReturn" />
+        </set>
+    </class>
+</hibernate-mapping>

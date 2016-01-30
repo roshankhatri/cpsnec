@@ -69,6 +69,8 @@ public class AccountController {
 			@ModelAttribute("accountpayment") AccountPayment accountpayment,
 			HttpSession session, SessionStatus status) {
 		Account account = (Account) session.getAttribute("account");
+		long balanceAmount=account.getPayableDues()-accountpayment.getPaidAmount()  ;
+		account.setPayableDues(balanceAmount);
 		accountpayment.setPaidDate(new Date());
 		account.addAccountPayment(accountpayment);
 		accountDao.update(account);
