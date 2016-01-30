@@ -17,14 +17,12 @@ public class HomeController {
 	public String home() {
 		return "main";
 	}
-
 	@RequestMapping("/test")
 	public String testing() {
 		System.out.println("in test method");
 		return null;
 
 	}
-
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
 		return "login";
