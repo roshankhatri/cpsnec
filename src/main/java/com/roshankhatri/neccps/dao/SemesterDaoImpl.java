@@ -36,5 +36,12 @@ public class SemesterDaoImpl implements SemesterDao {
 		transaction.commit();
 		return semesters;
 	}
+	@Override
+	public void update(Semester semester) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		session.update(semester);
+		transaction.commit();
+	}
 
 }

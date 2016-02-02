@@ -6,6 +6,7 @@ public class Course {
 	private long id;
 	private String courseName;
 	private int courseCredit;
+	private Semester semester;
 	private Set<Student> students;
 	
 	public Course() {
@@ -37,6 +38,12 @@ public class Course {
 	}
 	public void setStudents(Set<Student> students) {
 		this.students = students;
+	}
+	public Semester getSemester() {
+		return semester;
+	}
+	public void setSemester(Semester semester) {
+		this.semester = semester;
 	}
 	
 }

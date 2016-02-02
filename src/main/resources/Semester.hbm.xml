@@ -18,5 +18,11 @@
         <many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" fetch="join">
         	<column name="BATCH_ID"/>
         </many-to-one>
+        <set name="courses" table="COURSE" lazy="false" inverse="true" cascade="save-update">
+        	<key>
+        		<column name="SEMESTER_ID"/>
+        	</key>
+        	<one-to-many class="com.roshankhatri.neccps.model.Course"/>
+        </set>
     </class>
 </hibernate-mapping>

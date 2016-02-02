@@ -22,5 +22,8 @@
 			<many-to-many class="com.roshankhatri.neccps.model.Student"
 				column="STUDENT_ID" />
 		</set>
+		<many-to-one name="semester" class="com.roshankhatri.neccps.model.Semester" fetch="join">
+			<column name="SEMESTER_ID"/>
+		</many-to-one>
 	</class>
 </hibernate-mapping>
