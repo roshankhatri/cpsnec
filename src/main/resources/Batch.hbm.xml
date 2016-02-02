@@ -18,14 +18,19 @@
 			fetch="join">
 			<column name="PROGRAM_ID" />
 		</many-to-one>
-		<one-to-one name="semester" class="com.roshankhatri.neccps.model.Semester"
-			cascade="save-update" />
 		<set name="students" table="student" inverse="true" lazy="false"
 			cascade="save-update">
 			<key>
 				<column name="BATCH_ID"></column>
 			</key>
 			<one-to-many class="com.roshankhatri.neccps.model.Student" />
+		</set>
+		<set name="semesters" table="SEMESTER" inverse="true" lazy="false"
+			cascade="save-update">
+			<key>
+				<column name="BATCH_ID" />
+			</key>
+			<one-to-many class="com.roshankhatri.neccps.model.Semester" />
 		</set>
 	</class>
 </hibernate-mapping>

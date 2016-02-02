@@ -5,9 +5,8 @@
 <hibernate-mapping>
     <class name="com.roshankhatri.neccps.model.Semester" table="SEMESTER">
         <id name="id" type="long">
-            <column name="BATCH_ID" />
-            <generator class="foreign">
-            	<param name="property">batch</param>
+            <column name="SEMESTER_ID" />
+            <generator class="identity">
             </generator>
         </id>
         <property name="semesterYear" type="long">
@@ -16,6 +15,8 @@
         <property name="semesterSession" type="java.lang.String">
             <column name="SEMESTERSESSION" />
         </property>
-        <one-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" constrained="true" cascade="save-update"/>
+        <many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch" fetch="join">
+        	<column name="BATCH_ID"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

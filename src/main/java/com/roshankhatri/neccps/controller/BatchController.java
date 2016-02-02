@@ -7,12 +7,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.roshankhatri.neccps.dao.BatchDao;
 import com.roshankhatri.neccps.dao.SemesterDao;
@@ -79,14 +81,20 @@ public class BatchController {
 	}
 	@RequestMapping(value = "/addSemester", method = RequestMethod.POST)
 	public String addStudentPost(@ModelAttribute("semester") Semester semester,
-			HttpSession session, SessionStatus status) {
+			HttpSession session, SessionStatus status,RedirectAttributes redirectAttributes) {
 		Batch batch = (Batch) session.getAttribute("batch");
-		batch.setSemester(semester);
-		semester.setBatch(batch);
+		batch.addSemester(semester);
 		batchDao.update(batch);
-		//semesterDao.save(semester);
+		redirectAttributes.addFlashAttribute("batch", batch);
 		status.setComplete();
-		return null;
+		return "redirect:/Batch/displaySemester";
+	}
+	@RequestMapping(value="/displaySemester",method=RequestMethod.GET)
+	public String displaySemester(Model model,@ModelAttribute("batch") Batch batch){
+		model.addAttribute("batch", batch);
+		List<Semester> semesters=semesterDao.getByBatchId(batch.getId());
+		model.addAttribute("semesters", semesters);
+		return "semester/semesterall";
 	}
 
 }

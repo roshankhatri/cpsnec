@@ -8,7 +8,7 @@ public class Batch {
 	private String batchYear;
 	private String batchIntake;
 	private Program program;
-	private Semester semester;
+	private Set<Semester> semesters=new HashSet<Semester>();
 	private Set<Student> students=new HashSet<Student>();
 	
 	public Batch() {
@@ -44,15 +44,6 @@ public class Batch {
 	public void setProgram(Program program) {
 		this.program = program;
 	}
-
-	public Semester getSemester() {
-		return semester;
-	}
-
-	public void setSemester(Semester semester) {
-		this.semester = semester;
-	}
-
 	public Set<Student> getStudents() {
 		return students;
 	}
@@ -63,5 +54,15 @@ public class Batch {
 	public void addStudent(Student studentItem){
 		studentItem.setBatch(this);
 		students.add(studentItem);
+	}
+	public void addSemester(Semester semesterItem){
+		semesterItem.setBatch(this);
+		getSemesters().add(semesterItem);
+	}
+	public Set<Semester> getSemesters() {
+		return semesters;
+	}
+	public void setSemesters(Set<Semester> semesters) {
+		this.semesters = semesters;
 	}
 }
