@@ -13,6 +13,8 @@
 	href='<spring:url value="/resources/css/bootstrap/css/bootstrap.min.css"></spring:url>'>
 <link rel="stylesheet"
 	href='<spring:url value="/resources/css/bootstrap/css/custom.css"></spring:url>'>
+<link rel="stylesheet"
+	href='<spring:url value="/resources/css/bootstrap/css/bootstrap-select.min.css"></spring:url>'>	
 </head>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
@@ -29,7 +31,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href='<c:url value="/Student/"></c:url>'>Student</a></li>
+				<li><a href='<c:url value="/Student/search"></c:url>'>Student</a></li>
 				<li><a href='<c:url value="/Program/"></c:url>'>Program</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"

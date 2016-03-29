@@ -12,18 +12,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.roshankhatri.neccps.dao.BatchDao;
+import com.roshankhatri.neccps.dao.ProgramDao;
 import com.roshankhatri.neccps.dao.StudentDao;
 import com.roshankhatri.neccps.model.Batch;
+import com.roshankhatri.neccps.model.Program;
 import com.roshankhatri.neccps.model.Student;
 
 @Controller
 @RequestMapping("/Student")
 public class StudentController {
+	@Autowired 
+	private ProgramDao programDao; 
+	
 	@Autowired
 	private StudentDao studentDao;
 	
 	@Autowired
 	private BatchDao batchDao;
+	
+	@RequestMapping(value="/search",method=RequestMethod.GET)
+	public String addstudent(Model model){
+		List<Program> programs=programDao.listall();
+		for (Program program : programs) {
+			System.out.println(program.getProgramName());
+		}
+		model.addAttribute("programs", programs);
+		return "studentsearch";
+	}
 
 	@RequestMapping(value = "/{batchId}", method = RequestMethod.GET)
 	public String home(Model model,@PathVariable long batchId) {
