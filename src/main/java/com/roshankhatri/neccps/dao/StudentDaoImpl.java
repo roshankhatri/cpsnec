@@ -19,8 +19,6 @@ public class StudentDaoImpl implements StudentDao {
 	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
 	}
-
-	@Override
 	@Transactional
 	public long save(Student student) {
 		Session session = this.sessionFactory.getCurrentSession();
@@ -31,7 +29,6 @@ public class StudentDaoImpl implements StudentDao {
 		return id;
 	}
 
-	@Override
 	public Student getById(long id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
@@ -40,7 +37,6 @@ public class StudentDaoImpl implements StudentDao {
 		return student;
 	}
 
-	@Override
 	public List<Student> getall() {
 		Session session = this.sessionFactory.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
@@ -50,7 +46,6 @@ public class StudentDaoImpl implements StudentDao {
 		return students;
 	}
 
-	@Override
 	public List<Student> getByBatchId(long BatchId) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Transaction transaction = session.beginTransaction();

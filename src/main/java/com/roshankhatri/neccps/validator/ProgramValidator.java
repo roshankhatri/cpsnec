@@ -7,12 +7,10 @@ import com.roshankhatri.neccps.model.Program;
 
 public class ProgramValidator implements Validator {
 
-	@Override
 	public boolean supports(Class<?> clazz) {
 		return Program.class.equals(clazz);
 	}
 
-	@Override
 	public void validate(Object obj, Errors errors) {
 		Program program=(Program) obj;
 		if(program.getProgramName().length()<5)

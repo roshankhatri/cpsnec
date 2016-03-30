@@ -2,17 +2,12 @@ package com.roshankhatri.neccps.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 
 import com.roshankhatri.neccps.dao.BatchDao;
 import com.roshankhatri.neccps.dao.StudentDao;
@@ -21,7 +16,6 @@ import com.roshankhatri.neccps.model.Student;
 
 @Controller
 @RequestMapping("/Batch")
-@SessionAttributes("batch")
 public class BatchController {
 	
 	@Autowired
@@ -50,16 +44,16 @@ public class BatchController {
 		return "batch/newStudentOnBatch";
 	}
 
-	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-	public String addStudentPost(@ModelAttribute("student") Student student,
-			HttpSession session, SessionStatus status) {
-		Batch batch = (Batch) session.getAttribute("batch");
-		long batchId = batch.getId();
-		batch.addStudent(student);
-		batchDao.update(batch);
-		status.setComplete();
-		return "redirect:/Batch/showStudent/" + batchId;
-	}
+//	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
+//	public String addStudentPost(@ModelAttribute("student") Student student,
+//			HttpSession session, SessionStatus status) {
+//		Batch batch = (Batch) session.getAttribute("batch");
+//		long batchId = batch.getId();
+//		batch.addStudent(student);
+//		batchDao.update(batch);
+//		status.setComplete();
+//		return "redirect:/Batch/showStudent/" + batchId;
+//	}
 
 	@RequestMapping(value = "/showStudent/{batchId}", method = RequestMethod.GET)
 	public String showStudents(Model model, @PathVariable long batchId) {

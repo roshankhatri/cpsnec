@@ -13,6 +13,7 @@ public class Student {
 	private long payableAmount;
 	private long issueableBooks;
 	private Set<Payment> payments=new HashSet<Payment>();
+	private Set<IssueReturn> issueReturns=new HashSet<IssueReturn>();
 	
 	public long getId() {
 		return id;
@@ -61,6 +62,12 @@ public class Student {
 	}
 	public void setPayments(Set<Payment> payments) {
 		this.payments = payments;
+	}
+	public Set<IssueReturn> getIssueReturns() {
+		return issueReturns;
+	}
+	public void setIssueReturns(Set<IssueReturn> issueReturns) {
+		this.issueReturns = issueReturns;
 	}
 
 }

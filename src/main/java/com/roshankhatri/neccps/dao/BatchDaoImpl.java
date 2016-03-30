@@ -22,8 +22,6 @@ public class BatchDaoImpl implements BatchDao {
 		this.sessionFactory = sf;
 	}
 
-	
-	@Override
 	public long save(Batch batch) {
 		Session session=this.sessionFactory.getCurrentSession();
 		//System.out.println(program.getProgramName().toString());
@@ -44,7 +42,6 @@ public class BatchDaoImpl implements BatchDao {
 		return batches;
 	}
 
-	@Override
 	public Batch getById(long id) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
@@ -53,8 +50,6 @@ public class BatchDaoImpl implements BatchDao {
 		return batch;
 	}
 
-
-	@Override
 	@Transactional
 	public List<Batch> listall(long programId) {
 		Session session=this.sessionFactory.getCurrentSession();
@@ -66,8 +61,6 @@ public class BatchDaoImpl implements BatchDao {
 		transaction.commit();
 	 	return batches;
 	}
-
-	@Override
 	public long update(Batch batch) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();

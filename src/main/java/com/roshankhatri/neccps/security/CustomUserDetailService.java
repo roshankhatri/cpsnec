@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component("customUserDetailService")
 public class CustomUserDetailService implements UserDetailsService{
 	
-	@Override
 	public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
 	
 		return null;

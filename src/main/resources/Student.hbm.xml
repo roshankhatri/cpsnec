@@ -26,5 +26,6 @@
 			</key>
 			<one-to-many class="com.roshankhatri.neccps.model.Payment"/>
 		</set>
+		<set></set>
 	</class>
 </hibernate-mapping>
