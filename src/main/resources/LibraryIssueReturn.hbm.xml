@@ -14,8 +14,5 @@
         <property name="issuedReturnedDate" type="java.util.Date">
             <column name="ISSUEDRETURNEDDATE" />
         </property>
-        <many-to-one name="library" class="com.roshankhatri.neccps.model.Library" fetch="join">
-            <column name="STUDENT_ID" />
-        </many-to-one>
     </class>
 </hibernate-mapping>
