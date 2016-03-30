@@ -8,6 +8,7 @@
 					<th>S.No</th>
 					<th>First Name</th>
 					<th>Last Name</th>
+					<th>Account</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -16,6 +17,7 @@
 						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${student.firstname}" /></td>
 						<td><c:out value="${student.lastname}" /></td>
+						<td><a href='<spring:url value="/Payment/add/${student.id}"></spring:url>'>Add Payment</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -36,14 +36,11 @@
 		<property name="mappingResources">
 			<list>
 				<value>Student.hbm.xml</value>
-				<value>Account.hbm.xml</value>
 				<value>Thesis.hbm.xml</value>
 				<value>Program.hbm.xml</value>
 				<value>Batch.hbm.xml</value>
-				<value>Semester.hbm.xml</value>
-				<value>Course.hbm.xml</value>
 				<value>AccountPayment.hbm.xml</value>
-				<value>Library.hbm.xml</value>
+				<value>Payment.hbm.xml</value>
 				<value>LibraryIssueReturn.hbm.xml</value>
 			</list>
 		</property>
@@ -68,15 +65,11 @@
 	<bean id="batchDao" class="com.roshankhatri.neccps.dao.BatchDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
-	<bean id="semesterDao" class="com.roshankhatri.neccps.dao.SemesterDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
+	
+	<bean id="paymentDao" class="com.roshankhatri.neccps.dao.PaymentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
-
-	<bean id="accountDao" class="com.roshankhatri.neccps.dao.AccountDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
+	
 	<context:component-scan base-package="com.roshankhatri.neccps" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

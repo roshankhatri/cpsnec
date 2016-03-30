@@ -6,8 +6,6 @@ public class LibraryIssueReturn {
 	private long libraryItemId;
 	private long issuedReturned;
 	private Date issuedReturnedDate;
-	private Library library;
-	
 	
 	public long getLibraryItemId() {
 		return libraryItemId;
@@ -20,12 +18,6 @@ public class LibraryIssueReturn {
 	}
 	public void setIssuedReturned(long issuedReturned) {
 		this.issuedReturned = issuedReturned;
-	}
-	public Library getLibrary() {
-		return library;
-	}
-	public void setLibrary(Library library) {
-		this.library = library;
 	}
 	public Date getIssuedReturnedDate() {
 		return issuedReturnedDate;

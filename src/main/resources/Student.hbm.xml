@@ -20,5 +20,11 @@
 			fetch="join">
 			<column name="BATCH_ID"></column>
 		</many-to-one>
+		<set name="payments" table="PAYMENT" inverse="true" lazy="false">
+			<key>
+				<column name="STUDENT_ID"/>
+			</key>
+			<one-to-many class="com.roshankhatri.neccps.model.Payment"/>
+		</set>
 	</class>
 </hibernate-mapping>

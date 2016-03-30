@@ -1,16 +1,18 @@
 package com.roshankhatri.neccps.model;
 
+import java.util.HashSet;
 import java.util.Set;
+
 
 public class Student {
 	private long id;
 	private String firstname;
 	private String lastname;
-	private Account account;
-	private Library library;
 	private Thesis thesis;
 	private Batch batch;
-	private Set<Course> courses;
+	private long payableAmount;
+	private long issueableBooks;
+	private Set<Payment> payments=new HashSet<Payment>();
 	
 	public long getId() {
 		return id;
@@ -30,12 +32,6 @@ public class Student {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
 	public Thesis getThesis() {
 		return thesis;
 	}
@@ -48,17 +44,23 @@ public class Student {
 	public void setBatch(Batch batch) {
 		this.batch = batch;
 	}
-	public Set<Course> getCourses() {
-		return courses;
+	public long getPayableAmount() {
+		return payableAmount;
 	}
-	public void setCourses(Set<Course> courses) {
-		this.courses = courses;
+	public void setPayableAmount(long payableAmount) {
+		this.payableAmount = payableAmount;
 	}
-	public Library getLibrary() {
-		return library;
+	public long getIssueableBooks() {
+		return issueableBooks;
 	}
-	public void setLibrary(Library library) {
-		this.library = library;
+	public void setIssueableBooks(long issueableBooks) {
+		this.issueableBooks = issueableBooks;
+	}
+	public Set<Payment> getPayments() {
+		return payments;
+	}
+	public void setPayments(Set<Payment> payments) {
+		this.payments = payments;
 	}
 
 }

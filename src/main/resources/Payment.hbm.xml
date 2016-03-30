@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 30, 2016 8:56:00 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.Payment" table="PAYMENT">
+        <id name="accountPaymentId" type="long">
+            <column name="ACCOUNTPAYMENTID" />
+            <generator class="identity" />
+        </id>
+        <property name="paidAmount" type="long">
+            <column name="PAIDAMOUNT" />
+        </property>
+        <property name="paidDate" type="java.util.Date">
+            <column name="PAIDDATE" />
+        </property>
+        <many-to-one name="student" class="com.roshankhatri.neccps.model.Student" fetch="join">
+            <column name="STUDENT_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
