@@ -11,9 +11,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${students}" var="student">
+				<c:forEach items="${students}" var="student" varStatus="thecount">
 					<tr>
-						<td><c:out value="${student.id}" /></td>
+						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${student.firstname}" /></td>
 						<td><c:out value="${student.lastname}" /></td>
 					</tr>

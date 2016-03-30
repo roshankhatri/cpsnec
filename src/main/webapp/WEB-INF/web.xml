@@ -6,7 +6,7 @@
 	<display-name>neccps</display-name>
 	<!-- The front controller of this Spring Web application, responsible for 
 		handling all application requests -->
-		<!-- Spring Security web filter-->
+	<!-- Spring Security web filter -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -16,7 +16,7 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -42,5 +42,4 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
 </web-app>

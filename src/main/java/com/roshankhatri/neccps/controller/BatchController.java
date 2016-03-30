@@ -26,7 +26,7 @@ import com.roshankhatri.neccps.model.Student;
 @RequestMapping("/Batch")
 @SessionAttributes("batch")
 public class BatchController {
-
+	
 	@Autowired
 	private BatchDao batchDao;
 
@@ -35,6 +35,13 @@ public class BatchController {
 	
 	@Autowired
 	private SemesterDao semesterDao;
+	
+	@RequestMapping(value="/batch/{programId}",method=RequestMethod.GET)
+	public String getBatchProgram(Model model,@PathVariable long programId){
+			List<Batch> batches=batchDao.listall(programId);
+			model.addAttribute("batches", batches);
+			return "progbatch";
+	}
 
 	@RequestMapping(value = "/addStudent/{batchId}", method = RequestMethod.GET)
 	public String addStudentGet(Model model, @PathVariable long batchId) {

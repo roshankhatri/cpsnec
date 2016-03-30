@@ -5,9 +5,13 @@
 	<div class="panel-body">
 		<select class="selectpicker">
 			<c:forEach items="${programs}" var="program">
-			<option value="<c:out value="${program.id}"/>"><c:out value="${program.programName}"/></option>
-		</c:forEach>
+				<option value="<c:out value="${program.id}"/>"><c:out
+						value="${program.programName}" /></option>
+			</c:forEach>
 		</select>
+		<c:forEach items="${programs}" var="program">
+			<a href='<c:url value="/Batch/batch/${program.id}"></c:url>'>${program.programName }</a>
+		</c:forEach>
 	</div>
 	<!-- panel ends  -->
 </div>

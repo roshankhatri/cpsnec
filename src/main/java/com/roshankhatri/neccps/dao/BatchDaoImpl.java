@@ -2,6 +2,8 @@ package com.roshankhatri.neccps.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -31,7 +33,8 @@ public class BatchDaoImpl implements BatchDao {
 		transaction.commit();
 		return id;
 		}
-
+	
+	@Transactional
 	public List<Batch> listAllWithoutProgram() {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
@@ -52,6 +55,7 @@ public class BatchDaoImpl implements BatchDao {
 
 
 	@Override
+	@Transactional
 	public List<Batch> listall(long programId) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();

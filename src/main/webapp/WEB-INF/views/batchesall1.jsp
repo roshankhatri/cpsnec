@@ -25,7 +25,7 @@
 									href='<c:url value="/Batch/addStudent/${batch.id}"></c:url>'>Add
 										Student</a></td>
 								<td><a
-									href='<c:url value="/Batch/showStudent/${batch.id}"></c:url>'>Show
+									href='<c:url value="/Student/view/${batch.id}"></c:url>'>Show
 										Student</a></td>
 								<td><a
 									href='<c:url value="/Batch/addSemester/${batch.id}"></c:url>'>Add

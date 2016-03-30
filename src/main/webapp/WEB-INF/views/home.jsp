@@ -4,9 +4,9 @@
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/Student/" commandName="student">
+		<form:form method="POST" action='/neccps/Student/add/' commandName="student">
 			<div class="form-group">
-				<form:label path="firstname">First Name</form:label>
+				<form:label path="firstname">First Name1</form:label>
 				<form:input path="firstname" cssClass="form-control" />
 			</div>
 			<div class="form-group">
@@ -16,6 +16,7 @@
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">Submit</button>
 			</div>
+			<input type="hidden" name="batchId" value='<c:out value="${student.batch.id}"/>'>
 			<!-- form ends here -->
 		</form:form>
 		<!--panel body ends here  -->

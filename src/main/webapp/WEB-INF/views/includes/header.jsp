@@ -31,8 +31,8 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href='<c:url value="/Student/search"></c:url>'>Student</a></li>
-				<li><a href='<c:url value="/Program/"></c:url>'>Program</a></li>
+				<li><a href='<c:url value="/Student/"></c:url>'>Student</a></li>
+				<li><a href='<c:url value="/Program/list"></c:url>'>Program</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Dropdown <span class="caret"></span></a>
