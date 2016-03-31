@@ -3,7 +3,6 @@ package com.roshankhatri.neccps.model;
 import java.util.HashSet;
 import java.util.Set;
 
-
 public class Student {
 	private long id;
 	private String firstname;
@@ -14,6 +13,7 @@ public class Student {
 	private long issueableBooks;
 	private Set<Payment> payments=new HashSet<Payment>();
 	private Set<IssueReturn> issueReturns=new HashSet<IssueReturn>();
+	private Set<ExamResult> examResults=new HashSet<ExamResult>();
 	
 	public long getId() {
 		return id;
@@ -68,6 +68,12 @@ public class Student {
 	}
 	public void setIssueReturns(Set<IssueReturn> issueReturns) {
 		this.issueReturns = issueReturns;
+	}
+	public Set<ExamResult> getExamResults() {
+		return examResults;
+	}
+	public void setExamResults(Set<ExamResult> examResults) {
+		this.examResults = examResults;
 	}
 
 }
