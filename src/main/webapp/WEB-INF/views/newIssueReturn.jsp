@@ -4,15 +4,19 @@
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/Payment/add" commandName="payment">
-			<input type="text" name="studentId" value="${student.id}"> 
+		<form:form method="POST" action="/neccps/IssueReturn/add" commandName="issueReturn">
+			<input type="hidden" name="studentId" value="${student.id}"> 
 			<div class="form-group">
-				<form:label path="paidAmount">paidAmount</form:label>
-				<form:input path="paidAmount" cssClass="form-control" />
+				<form:label path="issuedReturned">Issued Returned</form:label>
+				<form:input path="issuedReturned" cssClass="form-control" />
 			</div>
 			<div class="form-group">
-				<form:label path="paidDate">Paid Date</form:label>
-				<form:input path="paidDate" cssClass="form-control" />
+				<form:label path="issuedReturnedDate">Issue Return Date</form:label>
+				<form:input path="issuedReturnedDate" cssClass="form-control" />
+			</div>
+			<div class="form-group">
+				<form:label path="issueReturnStatus">Issue Return Status</form:label>
+				<form:radiobuttons path="issueReturnStatus" items="${checks}"/>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">Submit</button>

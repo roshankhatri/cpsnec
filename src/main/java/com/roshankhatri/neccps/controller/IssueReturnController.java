@@ -1,5 +1,7 @@
 package com.roshankhatri.neccps.controller;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.roshankhatri.neccps.dao.IssueReturnDao;
 import com.roshankhatri.neccps.dao.StudentDao;
 import com.roshankhatri.neccps.model.IssueReturn;
-import com.roshankhatri.neccps.model.Payment;
 import com.roshankhatri.neccps.model.Student;
 
 @Controller
@@ -36,23 +37,30 @@ public class IssueReturnController {
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
 		model.addAttribute("student", student);
-		System.out.println(student.getFirstname());
-		model.addAttribute("payment", new Payment());
-		return "newPayment";
+		List<String> checks=new LinkedList<>(Arrays.asList(new String[]{
+				"Issue","Return"
+		}));
+		model.addAttribute("checks", checks);
+		model.addAttribute("issueReturn", new IssueReturn());
+		return "newIssueReturn";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String addpaymentpost(@ModelAttribute("payment") Payment payment,@RequestParam("studentId") long studentId){
+	public String addpaymentpost(@ModelAttribute("issueReturn") IssueReturn issueReturn,@RequestParam("studentId") long studentId,@RequestParam("issueReturnStatus") String issueReturnStatus){
 		Student student=studentDao.getById(studentId);
-		payment.setStudent(student);
-	//	paymentDao.save(payment);
+		issueReturn.setStudent(student);
+		if(issueReturnStatus=="Issue")
+			System.out.println("Issue");
+		else
+			System.out.println("Return");
+		issueReturnDao.save(issueReturn);
 		long studentId1=student.getId();
-		return "redirect:/Payment/view/"+studentId1;		
+		return "redirect:/IssueReturn/view/"+studentId1;		
 	}	
 	@RequestMapping(value="/view/{studentId}",method=RequestMethod.GET)
 	public String listbystudent(Model model,@PathVariable long studentId){
-	//	List<Payment> payments=paymentDao.listbyStudent(studentId);
-	//	model.addAttribute("payments", payments);
-		return "listPayment"; 
+		List<IssueReturn> issueReturns=issueReturnDao.listbyStudent(studentId);
+		model.addAttribute("issueReturns", issueReturns);
+		return "listIssueReturn"; 
 	}
 
 }

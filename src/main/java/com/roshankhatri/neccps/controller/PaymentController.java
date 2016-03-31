@@ -35,7 +35,6 @@ public class PaymentController {
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
 		model.addAttribute("student", student);
-		System.out.println(student.getFirstname());
 		model.addAttribute("payment", new Payment());
 		return "newPayment";
 	}

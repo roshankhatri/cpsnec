@@ -14,6 +14,9 @@
         <property name="issuedReturnedDate" type="java.util.Date">
             <column name="ISSUEDRETURNEDDATE" />
         </property>
+         <property name="issueReturnStatus" type="java.lang.String">
+            <column name="ISSUERETURNSTATUS" />
+        </property>
         <many-to-one name="student" class="com.roshankhatri.neccps.model.Student" fetch="join">
             <column name="STUDENT_ID" />
         </many-to-one>
