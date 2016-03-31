@@ -18,7 +18,9 @@
 						<td><c:out value="${student.firstname}" /></td>
 						<td><c:out value="${student.lastname}" /></td>
 						<td><a href='<spring:url value="/Payment/add/${student.id}"></spring:url>'>Payment</a></td>
-						<td><a href='<spring:url value="/IssueReturn/add/${student.id}"></spring:url>'>IssueReturn</a></td>					
+						<td><a href='<spring:url value="/IssueReturn/add/${student.id}"></spring:url>'>IssueReturn</a></td>				
+						<td><a href='<spring:url value="/ExamResult/add/${student.id}"></spring:url>'>ExamResult</a></td>					
+										
 					</tr>
 				</c:forEach>
 			</tbody>

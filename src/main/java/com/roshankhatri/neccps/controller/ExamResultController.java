@@ -3,6 +3,7 @@ package com.roshankhatri.neccps.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,8 @@ import com.roshankhatri.neccps.dao.StudentDao;
 import com.roshankhatri.neccps.model.ExamResult;
 import com.roshankhatri.neccps.model.Student;
 
+@Controller
+@RequestMapping("/ExamResult")
 public class ExamResultController {
 
 	@Autowired

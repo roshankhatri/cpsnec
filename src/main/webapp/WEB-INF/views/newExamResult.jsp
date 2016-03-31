@@ -7,19 +7,19 @@
 		<form:form method="POST" action="/neccps/ExamResult/add" commandName="examResult">
 			<input type="hidden" name="studentId" value="${student.id}"> 
 			<div class="form-group">
-				<form:label path="year">Issued Returned</form:label>
+				<form:label path="year">Year</form:label>
 				<form:input path="year" cssClass="form-control" />
 			</div>
 			<div class="form-group">
-				<form:label path="semester">Issue Return Date</form:label>
-				<form:input path="semester" cssClass="form-control" />
+				<form:label path="semseter">Semester</form:label>
+				<form:input path="semseter" cssClass="form-control" />
 			</div>
 			<div class="form-group">
-				<form:label path="subject">Issue Return Date</form:label>
+				<form:label path="subject">Subject</form:label>
 				<form:input path="subject" cssClass="form-control" />
 			</div>
 			<div class="form-group">
-				<form:label path="grade">Issue Return Date</form:label>
+				<form:label path="grade">Grade</form:label>
 				<form:input path="grade" cssClass="form-control" />
 			</div>
 			<div class="form-group">

@@ -18,7 +18,7 @@
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${examResult.year}" /></td>
-						<td><c:out value="${examResult.semester}"/></td>
+						<td><c:out value="${examResult.semseter}"/></td>
 						<td><c:out value="${examResult.subject}"/></td>
 						<td><c:out value="${examResult.grade}"/></td>
 					</tr>
