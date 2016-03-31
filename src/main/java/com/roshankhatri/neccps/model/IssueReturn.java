@@ -9,6 +9,7 @@ public class IssueReturn {
 	private Long issuedReturned;
 	@DateTimeFormat (pattern="yyyy-MM-dd")
 	private Date issuedReturnedDate;
+	private String issueReturnStatus;
 	private Student student;
 
 	public long getLibraryItemId() {
@@ -34,5 +35,11 @@ public class IssueReturn {
 	}
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+	public String getIssueReturnStatus() {
+		return issueReturnStatus;
+	}
+	public void setIssueReturnStatus(String issueReturnStatus) {
+		this.issueReturnStatus = issueReturnStatus;
 	}
 }
