@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 31, 2016 7:52:19 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.IssueReturn" table="ISSUERETURN">
+        <id name="libraryItemId" type="long">
+            <column name="LIBRARYITEMID" />
+            <generator class="identity" />
+        </id>
+        <property name="issuedReturned" type="java.lang.Long">
+            <column name="ISSUEDRETURNED" />
+        </property>
+        <property name="issuedReturnedDate" type="java.util.Date">
+            <column name="ISSUEDRETURNEDDATE" />
+        </property>
+        <many-to-one name="student" class="com.roshankhatri.neccps.model.Student" fetch="join">
+            <column name="STUDENT_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

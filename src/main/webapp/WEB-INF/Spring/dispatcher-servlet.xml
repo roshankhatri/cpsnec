@@ -42,6 +42,7 @@
 				<value>AccountPayment.hbm.xml</value>
 				<value>Payment.hbm.xml</value>
 				<value>LibraryIssueReturn.hbm.xml</value>
+				<value>IssueReturn.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
