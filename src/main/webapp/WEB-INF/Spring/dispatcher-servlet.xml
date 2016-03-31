@@ -43,6 +43,7 @@
 				<value>Payment.hbm.xml</value>
 				<value>LibraryIssueReturn.hbm.xml</value>
 				<value>IssueReturn.hbm.xml</value>
+				<value>ExamResult.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -72,6 +73,10 @@
 	</bean>
 	
 	<bean id="issueReturnDao" class="com.roshankhatri.neccps.dao.IssueReturnDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="examResultDao" class="com.roshankhatri.neccps.dao.ExamResultDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 31, 2016 1:37:34 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.ExamResult" table="EXAMRESULT">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="year" type="java.lang.Long">
+            <column name="YEAR" />
+        </property>
+        <property name="semseter" type="java.lang.Long">
+            <column name="SEMSETER" />
+        </property>
+        <property name="subject" type="java.lang.String">
+            <column name="SUBJECT" />
+        </property>
+        <property name="grade" type="java.lang.String">
+            <column name="GRADE" />
+        </property>
+        <property name="enteredDate" type="java.util.Date">
+            <column name="ENTEREDDATE" />
+        </property>
+        <many-to-one name="student" class="com.roshankhatri.neccps.model.Student" fetch="join">
+            <column name="STUDENT_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
