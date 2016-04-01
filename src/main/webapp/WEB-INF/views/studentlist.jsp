@@ -8,9 +8,9 @@
 					<th>S.No</th>
 					<th>First Name</th>
 					<th>Last Name</th>
-					<th>Account</th>
-					<th>ExamResult</th>
+					<th>Payment</th>
 					<th>Issue Return</th>
+					<th>ExamResult</th>
 					<th>Thesis</th>
 				</tr>
 			</thead>
