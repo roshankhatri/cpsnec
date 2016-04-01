@@ -16,6 +16,7 @@
 <link rel="stylesheet"
 	href='<spring:url value="/resources/css/bootstrap/css/bootstrap-select.min.css"></spring:url>'>	
 </head>
+<body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -26,26 +27,17 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">nec CPS IS</a>
+			<a class="navbar-brand" href='<c:url value="/"></c:url>'>nec CPS IS</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href='<c:url value="/Student/"></c:url>'>Student</a></li>
+				<li class="active"><a href='<c:url value="/"></c:url>'>Home</a></li>
 				<li><a href='<c:url value="/Program/list"></c:url>'>Program</a></li>
-				<li><a href='<c:url value="/IssueReturn/"></c:url>'>Library</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li class="dropdown-header">Nav header</li>
-						<li><a href="#">Separated link</a></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul></li>
+				<li><a href='<c:url value="/Student/"></c:url>'>Student</a></li>
+				<li><a href='<c:url value="/Payment/"></c:url>'>Account</a></li>
+				<li><a href='<c:url value="/IssueReturn/"></c:url>'>IssueReturn</a></li>
+				<li><a href='<c:url value="/ExamResult/"></c:url>'>ExamResult</a></li>
+				<li><a href='<c:url value="/Thesis/"></c:url>'>Thesis</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 			<sec:authorize access="authenticated" var="authenticated" />
@@ -67,5 +59,4 @@
 		<!--/.nav-collapse -->
 	</div>
 </nav>
-<body>
-	<div class="container" id="top">
+<div class="container" id="top">
