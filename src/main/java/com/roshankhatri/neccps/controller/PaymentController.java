@@ -3,6 +3,7 @@ package com.roshankhatri.neccps.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.transform.impl.AddDelegateTransformer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,14 +30,14 @@ public class PaymentController {
 	public String listallpayment(Model model){
 		List<Payment> payments=paymentDao.listall();
 		model.addAttribute("payments", payments);
-		return "listPayment";
+		return "payment/listPayment";
 	}
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
 		model.addAttribute("student", student);
 		model.addAttribute("payment", new Payment());
-		return "newPayment";
+		return "payment/newPayment";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addpaymentpost(@ModelAttribute("payment") Payment payment,@RequestParam("studentId") long studentId){
@@ -49,8 +50,9 @@ public class PaymentController {
 	@RequestMapping(value="/view/{studentId}",method=RequestMethod.GET)
 	public String listbystudent(Model model,@PathVariable long studentId){
 		List<Payment> payments=paymentDao.listbyStudent(studentId);
+		model.addAttribute("student", studentDao.getById(studentId));
 		model.addAttribute("payments", payments);
-		return "listPayment"; 
+		return "payment/listPaymentByStudent"; 
 	}
 
 }

@@ -1,13 +1,14 @@
-<%@ include file="includes/header.jsp"%>
+<%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">Program Information</div>
+	<div class="panel-heading">Payment Information Student:<c:out value="${student.firstname} ${student.lastname}"/> Batch: 
+	<c:out value="${student.batch.batchYear}"></c:out> Program: <c:out value="${student.batch.program.programName}"/></div>
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
 		<form:form method="POST" action="/neccps/Payment/add" commandName="payment">
-			<input type="text" name="studentId" value="${student.id}"> 
+			<input type="hidden" name="studentId" value="${student.id}"> 
 			<div class="form-group">
-				<form:label path="paidAmount">paidAmount</form:label>
+				<form:label path="paidAmount">Paid Amount</form:label>
 				<form:input path="paidAmount" cssClass="form-control" />
 			</div>
 			<div class="form-group">
@@ -23,4 +24,4 @@
 	</div>
 	<!-- panel ends  -->
 </div>
-<%@ include file="includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>
