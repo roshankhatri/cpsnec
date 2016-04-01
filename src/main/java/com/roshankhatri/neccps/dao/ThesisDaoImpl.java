@@ -35,13 +35,15 @@ public class ThesisDaoImpl implements ThesisDao{
 	}
 
 	@Override
-	public Thesis getByStudent(long studentId) {
+	public List<Thesis> listbyStudent(long studentId) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
 		Query query=session.createQuery("from Thesiswhere STUDENT_ID=:id");
 		query.setLong("id",studentId );
+		@SuppressWarnings("unchecked")
+		List<Thesis> thesises=query.list();
 		transaction.commit();
-		return null;
+		return thesises;
 	}
 
 }
