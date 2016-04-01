@@ -1,11 +1,11 @@
-<%@ include file="includes/header.jsp"%>
+<%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">Program Information</div>
+	<div class="panel-heading">Student Information Batch <c:out value="${batch.batchYear}"/> Program <c:out value="${batch.program.programName}"/></div>
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/Program/Batch/addStudent" commandName="student">
-			<input type="hidden" name="batchId" value="${batchId}"> 
+		<form:form method="POST" action="/neccps/Student/add" commandName="student">
+			<input type="hidden" name="batchId" value="${batch.id}"> 
 			<div class="form-group">
 				<form:label path="firstname">First Name</form:label>
 				<form:input path="firstname" cssClass="form-control" />
@@ -23,4 +23,4 @@
 	</div>
 	<!-- panel ends  -->
 </div>
-<%@ include file="includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>

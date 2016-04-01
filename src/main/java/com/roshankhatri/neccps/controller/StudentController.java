@@ -31,20 +31,20 @@ public class StudentController {
 	@Autowired
 	private BatchDao batchDao;
 	
-	@RequestMapping(value="/search",method=RequestMethod.GET)
+	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String addstudent(Model model){
 		List<Program> programs=programDao.listall();
 		model.addAttribute("programs", programs);
-		return "studentsearch";
+		return "student/baseindex";
 	}	
 	
 	@RequestMapping(value = "/add/{batchId}", method = RequestMethod.GET)
 	public String studentaddget(Model model,@PathVariable long batchId) {
 		Batch batch=batchDao.getById(batchId);
 		Student student=new Student();
-		student.setBatch(batch);
+		model.addAttribute("batch", batch);
 		model.addAttribute("student",student);
-		return "home";
+		return "student/newStudent";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String studentaddpost(@ModelAttribute("student") Student student,@RequestParam("batchId") long batchId) {
@@ -57,27 +57,15 @@ public class StudentController {
 	@RequestMapping(value="/view/{batchId}",method=RequestMethod.GET)
 	public String studentview(Model model,@PathVariable long batchId){
 		List<Student> students=studentDao.getByBatchId(batchId);
+		model.addAttribute("batch", batchDao.getById(batchId));
 		model.addAttribute("students", students);
-		return "studentlist";
+		return "student/listStudentByBatch";
 	}
-
-//	@RequestMapping(value = "/", method = RequestMethod.POST)
-//	public String home1(@ModelAttribute("student") Student student) {
-//		System.out.println(student.getFirstname().toString());
-//		studentDao.save(student);
-//		return "redirect:/Student/list";
-//	}
 
 	@RequestMapping(value = {"/","/list"}, method = RequestMethod.GET)
 	public String home1(Model model) {
 		List<Student> students = studentDao.getall();
 		model.addAttribute("students", students);
-		return "studentlist";
+		return "student/listStudent";
 	}
-	
-//	@RequestMapping(value = "/saveOnBatch", method = RequestMethod.POST)
-//	public String saveStudentOnBatch(@ModelAttribute("student") Student student,@RequestParam("batchId") long batchId) {
-//		studentDao.save(student);
-//		return "redirect:/Batch/showStudent/"+batchId;
-//	}
 }
