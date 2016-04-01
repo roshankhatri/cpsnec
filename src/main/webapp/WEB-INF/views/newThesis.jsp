@@ -12,7 +12,7 @@
 			</div>
 			<div class="form-group">
 				<form:label path="thesisYear">Thesis Year</form:label>
-				<form:select path="thesisYear" cssClass="selectpicker" items="${years}" />
+				<form:input path="thesisYear" cssClass="form-control" />
 			</div>
 			<div class="form-group">
 				<form:label path="thesisState">Thesis State</form:label>
