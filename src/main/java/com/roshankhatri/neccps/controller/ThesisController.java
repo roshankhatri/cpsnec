@@ -32,7 +32,7 @@ public class ThesisController {
 	public String listallpayment(Model model){
 		List<Thesis> thesises=thesisDao.listall();
 		model.addAttribute("thesises", thesises);
-		return "listThesis";
+		return "thesis/listThesis";
 	}
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
@@ -47,7 +47,7 @@ public class ThesisController {
 		}));
 		model.addAttribute("states", states);
 		model.addAttribute("thesis", new Thesis());
-		return "newThesis";
+		return "thesis/newThesis";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addpaymentpost(@ModelAttribute("thesis") Thesis thesis,@RequestParam("studentId") long studentId){
@@ -60,8 +60,10 @@ public class ThesisController {
 	@RequestMapping(value="/view/{studentId}",method=RequestMethod.GET)
 	public String listbystudent(Model model,@PathVariable long studentId){
 		List<Thesis> thesises=thesisDao.listbyStudent(studentId);
+		Student student=studentDao.getById(studentId);
+		model.addAttribute("student", student);
 		model.addAttribute("thesises", thesises);
-		return "listThesis"; 
+		return "thesis/listThesisByStudent"; 
 	}
 
 }

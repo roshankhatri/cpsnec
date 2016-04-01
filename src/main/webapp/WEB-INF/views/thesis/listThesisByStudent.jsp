@@ -1,8 +1,8 @@
-<%@ include file="includes/header.jsp"%>
+<%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">All Thesis list</div>
+	<div class="panel-heading">Thesis Details : <c:out value="${student.firstname} ${student.lastname}"></c:out></div>
 	<div class="panel-body">
-	<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add IssueReturn</button></a>
+	<a href='<spring:url value="/Thesis/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Update Thesis State</button></a>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -25,4 +25,4 @@
 		</table>
 	</div>
 </div>
-<%@ include file="includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>
