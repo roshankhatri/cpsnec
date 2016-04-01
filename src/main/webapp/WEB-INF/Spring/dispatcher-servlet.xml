@@ -80,6 +80,10 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
+	<bean id="thesisDao" class="com.roshankhatri.neccps.dao.ThesisDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
 	<context:component-scan base-package="com.roshankhatri.neccps" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

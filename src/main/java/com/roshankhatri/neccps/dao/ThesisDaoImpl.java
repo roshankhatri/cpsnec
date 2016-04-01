@@ -38,7 +38,7 @@ public class ThesisDaoImpl implements ThesisDao{
 	public List<Thesis> listbyStudent(long studentId) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
-		Query query=session.createQuery("from Thesiswhere STUDENT_ID=:id");
+		Query query=session.createQuery("from Thesis where STUDENT_ID=:id");
 		query.setLong("id",studentId );
 		@SuppressWarnings("unchecked")
 		List<Thesis> thesises=query.list();
