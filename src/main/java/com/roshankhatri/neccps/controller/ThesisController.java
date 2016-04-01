@@ -1,5 +1,7 @@
 package com.roshankhatri.neccps.controller;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,14 @@ public class ThesisController {
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
 		model.addAttribute("student", student);
+		List<String> years=new LinkedList<>(Arrays.asList(new String[]{
+				"2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2025"
+		}));
+		model.addAttribute("years", years);
+		List<String> states=new LinkedList<>(Arrays.asList(new String[]{
+				"Initial","PreDefense","Defense","MidTerm","PreFinal","Final","Commit"
+		}));
+		model.addAttribute("states", states);
 		model.addAttribute("thesis", new Thesis());
 		return "newThesis";
 	}

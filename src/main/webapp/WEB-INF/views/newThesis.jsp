@@ -12,11 +12,11 @@
 			</div>
 			<div class="form-group">
 				<form:label path="thesisYear">Thesis Year</form:label>
-				<form:input path="thesisYear" cssClass="form-control" />
+				<form:select path="thesisYear" cssClass="selectpicker" items="${years}" />
 			</div>
 			<div class="form-group">
 				<form:label path="thesisState">Thesis State</form:label>
-				<form:input path="thesisState" cssClass="form-control" />
+				<form:select path="thesisState" cssClass="selectpicker" items="${states}"/>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">Submit</button>
