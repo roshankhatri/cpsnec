@@ -3,14 +3,16 @@
 	<div class="panel-heading">Student Search</div>
 	<!--panel body starts here-->
 	<div class="panel-body">
-		<select class="selectpicker">
-			<c:forEach items="${programs}" var="program">
-				<option value="<c:out value="${program.id}"/>"><c:out
-						value="${program.programName}" /></option>
-			</c:forEach>
-		</select>
 		<c:forEach items="${programs}" var="program">
-			<a href='<c:url value="/Batch/batch/${program.id}"></c:url>'>${program.programName }</a>
+			<h4>
+				<c:out value="${program.programName}"></c:out>
+			</h4>
+			<c:forEach items="${program.batches}" var="batch">
+				<ul>
+					<li><a href='<c:url value="/Student/add/${batch.id}"></c:url>'>${batch.batchYear}
+							${batch.batchIntake}</a></li>
+				</ul>
+			</c:forEach>
 		</c:forEach>
 	</div>
 	<!-- panel ends  -->

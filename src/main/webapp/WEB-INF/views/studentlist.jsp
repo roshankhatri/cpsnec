@@ -23,7 +23,10 @@
 						<td><a href='<spring:url value="/Payment/add/${student.id}"></spring:url>'>Payment</a></td>
 						<td><a href='<spring:url value="/IssueReturn/add/${student.id}"></spring:url>'>IssueReturn</a></td>				
 						<td><a href='<spring:url value="/ExamResult/add/${student.id}"></spring:url>'>ExamResult</a></td>					
-						<td><a href='<spring:url value="/Thesis/add/${student.id}"></spring:url>'>Thesis</a></td>					
+						<td>
+							<a href='<spring:url value="/Thesis/add/${student.id}"></spring:url>'><span class="glyphicon glyphicon-plus"></span></a>
+							<a href='<spring:url value="/Thesis/view/${student.id}"></spring:url>'><span class="glyphicon glyphicon-search"></span></a>
+						</td>					
 										
 					</tr>
 				</c:forEach>
