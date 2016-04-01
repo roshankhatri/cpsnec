@@ -1,4 +1,4 @@
-<%@ include file="includes/header.jsp"%>
+<%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
 	<div class="panel-heading">Program: ${program.programName}</div>
 	<div class="panel-body">
@@ -8,11 +8,9 @@
 					<thead>
 						<tr>
 							<th>S.No</th>
-							<th>Program Name</th>
-							<th>Batches</th>
-							<th>Add Student</th>
-							<th>View Students</th>
-							<th>Add Semester</th>
+							<th>Batch Year</th>
+							<th>Batch Intake</th>
+							<th>Student</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -22,15 +20,8 @@
 								<td><c:out value="${batch.batchYear}" /></td>
 								<td><c:out value="${batch.batchIntake}" /></td>
 								<td><a
-									href='<c:url value="/Batch/addStudent/${batch.id}"></c:url>'>Add
-										Student</a></td>
-								<td><a
-									href='<c:url value="/Student/view/${batch.id}"></c:url>'>Show
-										Student</a></td>
-								<td><a
-									href='<c:url value="/Batch/addSemester/${batch.id}"></c:url>'>Add
-										Semester</a></td>
-							</tr>
+									href='<c:url value="/Student/view/${batch.id}"></c:url>'><span class="glyphicon glyphicon-search"></span></a></td>
+								</tr>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -44,4 +35,4 @@
 	</div>
 </div>
 
-<%@ include file="includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>

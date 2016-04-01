@@ -1,11 +1,12 @@
-<%@ include file="includes/header.jsp"%>
+<%@ include file="../includes/header.jsp"%>
 <!--panel starts  -->
 <div class="panel panel-primary">
 	<div class="panel-heading">Batch Information Program: ${program.programName}</div>
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/Program/addBatch" commandName="batch">
+		<form:form method="POST" action="/neccps/Batch/add" commandName="batch">
+			<input type="hidden" name="programId" value="${program.id}">
 			<div class="form-group">
 				<form:label path="batchYear">Batch Year</form:label>
 				<form:input path="batchYear" cssClass="form-control" />
@@ -23,4 +24,4 @@
 	</div>
 	<!-- panel ends  -->
 </div>
-<%@ include file="includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>
