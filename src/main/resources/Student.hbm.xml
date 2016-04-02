@@ -14,6 +14,34 @@
 		<property name="lastname" type="java.lang.String">
 			<column name="LASTNAME" />
 		</property>
+		<property name="payableAmount" type="java.lang.Long">
+			<column name="PAYABLEAMOUNT"></column>
+		</property>
+		<property name="issueableBooks" type="java.lang.Long">
+			<column name="ISSUABLEBOOKS"></column>
+		</property>
+		<component name="address">
+			<property name="district" type="java.lang.String">
+				<column name="DISTRICT" />
+			</property>
+			<property name="zone" type="java.lang.String">
+				<column name="ZONE" />
+			</property>
+			<property name="locality" type="java.lang.String">
+				<column name="LOCALITY" />
+			</property>
+		</component>
+		<component name="contact">
+			<property name="mobile" type="java.lang.Long">
+				<column name="MOBILE" />
+			</property>
+			<property name="landline" type="java.lang.Long">
+				<column name="LANDLINE" />
+			</property>
+			<property name="mail" type="java.lang.String">
+				<column name="MAIL" />
+			</property>
+		</component>
 		<one-to-one name="thesis" class="com.roshankhatri.neccps.model.Thesis"
 			cascade="save-update" />
 		<many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch"
@@ -22,21 +50,21 @@
 		</many-to-one>
 		<set name="payments" table="PAYMENT" inverse="true" lazy="false">
 			<key>
-				<column name="STUDENT_ID"/>
+				<column name="STUDENT_ID" />
 			</key>
-			<one-to-many class="com.roshankhatri.neccps.model.Payment"/>
+			<one-to-many class="com.roshankhatri.neccps.model.Payment" />
 		</set>
 		<set name="issueReturns" table="ISSUERETURN" inverse="true" lazy="false">
 			<key>
-				<column name="STUDENT_ID"/>
+				<column name="STUDENT_ID" />
 			</key>
-			<one-to-many class="com.roshankhatri.neccps.model.IssueReturn"/>
+			<one-to-many class="com.roshankhatri.neccps.model.IssueReturn" />
 		</set>
 		<set name="examResults" table="EXAMRESULT" inverse="true" lazy="false">
 			<key>
-				<column name="STUDENT_ID"/>
+				<column name="STUDENT_ID" />
 			</key>
-			<one-to-many class="com.roshankhatri.neccps.model.ExamResult"/>
+			<one-to-many class="com.roshankhatri.neccps.model.ExamResult" />
 		</set>
 	</class>
 </hibernate-mapping>
