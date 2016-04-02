@@ -17,14 +17,13 @@
 					<tr>
 						<td><c:out value="${program.id}" /></td>
 						<td><c:out value="${program.programName}" /></td>
-						<td><a href='<c:url value="/Batch/add/${program.id}"></c:url>'>Add
-								Batch</a></td>
+						<td><a href='<c:url value="/Batch/add/${program.id}"></c:url>'>
+							<span class="glyphicon glyphicon-plus"></span></a></td>
 						<td>
 						<c:choose>
 							<c:when test="${!empty program.batches}">
 								<a
-									href='<c:url value="/Batch/view/${program.id}"></c:url>'>Show
-										Batch</a>
+									href='<c:url value="/Batch/view/${program.id}"></c:url>'><span class="glyphicon glyphicon-search"></span></a>
 							</c:when>
 						</c:choose>
 						</td>

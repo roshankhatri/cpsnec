@@ -1,6 +1,7 @@
 <%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">All Students list</div>
+	<div class="panel-heading">All Students list Batch: <c:out value="${batch.batchYear}"/> Program: <c:out value="${batch.program.programName}"></c:out>
+	</div>
 	<div class="panel-body">
 		<table class="table table-striped">
 			<thead>
@@ -20,9 +21,15 @@
 						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${student.firstname}" /></td>
 						<td><c:out value="${student.lastname}" /></td>
-						<td><a href='<spring:url value="/Payment/add/${student.id}"></spring:url>'>Payment</a></td>
-						<td><a href='<spring:url value="/IssueReturn/add/${student.id}"></spring:url>'>IssueReturn</a></td>				
-						<td><a href='<spring:url value="/ExamResult/add/${student.id}"></spring:url>'>ExamResult</a></td>					
+						<td>
+							<a href='<spring:url value="/Payment/add/${student.id}"></spring:url>'><span class="glyphicon glyphicon-plus"></span></a>
+							<a href='<spring:url value="/Payment/view/${student.id}"></spring:url>'><span class="glyphicon glyphicon-search"></span></a></td>
+						<td>
+							<a href='<spring:url value="/IssueReturn/add/${student.id}"></spring:url>'><span class="glyphicon glyphicon-plus"></span></a>
+							<a href='<spring:url value="/IssueReturn/view/${student.id}"></spring:url>'><span class="glyphicon glyphicon-search"></span></a></td>				
+						<td>
+							<a href='<spring:url value="/ExamResult/add/${student.id}"></spring:url>'><span class="glyphicon glyphicon-plus"></span></a>
+							<a href='<spring:url value="/ExamResult/view/${student.id}"></spring:url>'><span class="glyphicon glyphicon-search"></span></a></td>					
 						<td>
 							<a href='<spring:url value="/Thesis/add/${student.id}"></spring:url>'><span class="glyphicon glyphicon-plus"></span></a>
 							<a href='<spring:url value="/Thesis/view/${student.id}"></spring:url>'><span class="glyphicon glyphicon-search"></span></a>
