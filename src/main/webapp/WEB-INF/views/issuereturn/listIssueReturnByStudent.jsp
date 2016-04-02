@@ -1,6 +1,7 @@
 <%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">All IssueReturn list</div>
+	<div class="panel-heading">All IssueReturn list Student: <c:out value="${student.firstname} ${student.lastname}"/> Batch: 
+	<c:out value="${student.batch.batchYear}"></c:out> Program: <c:out value="${student.batch.program.programName}"/></div>
 	<div class="panel-body">
 	<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add IssueReturn</button></a>
 		<table class="table table-striped">

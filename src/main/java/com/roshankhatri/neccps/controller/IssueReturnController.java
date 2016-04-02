@@ -59,6 +59,7 @@ public class IssueReturnController {
 	@RequestMapping(value="/view/{studentId}",method=RequestMethod.GET)
 	public String listbystudent(Model model,@PathVariable long studentId){
 		List<IssueReturn> issueReturns=issueReturnDao.listbyStudent(studentId);
+		model.addAttribute("student", studentDao.getById(studentId));
 		model.addAttribute("issueReturns", issueReturns);
 		return "listIssueReturn"; 
 	}
