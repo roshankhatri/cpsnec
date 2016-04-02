@@ -2,6 +2,8 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">All Batches List</div>
 	<div class="panel-body">
+	<c:choose>
+		<c:when test="${!empty batches}">
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -20,6 +22,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		</c:when>
+		<c:otherwise>
+			<h4>No batches have been added to the System</h4>
+		</c:otherwise>
+	</c:choose>
 	</div>
 </div>
 <%@ include file="../includes/footer.jsp"%>

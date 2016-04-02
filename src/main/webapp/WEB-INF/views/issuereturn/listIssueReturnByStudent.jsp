@@ -3,6 +3,8 @@
 	<div class="panel-heading">All IssueReturn list Student: <c:out value="${student.firstname} ${student.lastname}"/> Batch: 
 	<c:out value="${student.batch.batchYear}"></c:out> Program: <c:out value="${student.batch.program.programName}"/></div>
 	<div class="panel-body">
+	<c:choose>
+		<c:when test="${! empty issueReturns}">
 	<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add IssueReturn</button></a>
 		<table class="table table-striped">
 			<thead>
@@ -24,6 +26,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		</c:when>
+		<c:otherwise>
+			<h4>No IssueReturns have been made by <c:out value="${student.firstname} ${student.lastname}"/></h4>
+		</c:otherwise>
+	</c:choose>
 	</div>
 </div>
 <%@ include file="../includes/footer.jsp"%>

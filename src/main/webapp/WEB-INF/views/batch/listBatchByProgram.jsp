@@ -20,8 +20,12 @@
 								<td><c:out value="${batch.batchYear}" /></td>
 								<td><c:out value="${batch.batchIntake}" /></td>
 								<td>
+								<sec:authorize access="hasRole('SECRET') or hasRole('ADMIN')">
 									<a href='<c:url value="/Student/add/${batch.id}"></c:url>'><span class="glyphicon glyphicon-plus"></span></a>
+								</sec:authorize>
+								<sec:authorize access="hasRole('VIEW') or hasRole('ADMIN')">
 									<a href='<c:url value="/Student/view/${batch.id}"></c:url>'><span class="glyphicon glyphicon-search"></span></a>
+								</sec:authorize>
 								</td>
 								</tr>
 						</c:forEach>
@@ -30,7 +34,8 @@
 			</c:when>
 			<c:otherwise>
 				<div class="container">
-					<h4>No Batches Found</h4>
+					<h4>No Batches Found in <c:out value="${program.programName}"/>
+					</h4>
 				</div>
 			</c:otherwise>
 		</c:choose>
