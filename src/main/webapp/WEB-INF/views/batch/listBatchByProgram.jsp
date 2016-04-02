@@ -19,8 +19,10 @@
 								<td><c:out value="${thecount.count}" /></td>
 								<td><c:out value="${batch.batchYear}" /></td>
 								<td><c:out value="${batch.batchIntake}" /></td>
-								<td><a
-									href='<c:url value="/Student/view/${batch.id}"></c:url>'><span class="glyphicon glyphicon-search"></span></a></td>
+								<td>
+									<a href='<c:url value="/Student/add/${batch.id}"></c:url>'><span class="glyphicon glyphicon-plus"></span></a>
+									<a href='<c:url value="/Student/view/${batch.id}"></c:url>'><span class="glyphicon glyphicon-search"></span></a>
+								</td>
 								</tr>
 						</c:forEach>
 					</tbody>
