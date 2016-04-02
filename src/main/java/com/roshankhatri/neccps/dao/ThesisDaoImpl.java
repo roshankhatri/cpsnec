@@ -45,5 +45,20 @@ public class ThesisDaoImpl implements ThesisDao{
 		transaction.commit();
 		return thesises;
 	}
+	@Override
+	public Thesis getById(long thesisId) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Thesis thesis=(Thesis) session.get(Thesis.class,thesisId);
+		transaction.commit();
+		return thesis;
+	}
+	@Override
+	public void updateThesis(Thesis thesis) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		session.update(thesis);
+		transaction.commit();
+	}
 
 }

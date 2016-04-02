@@ -4,7 +4,6 @@
 	<div class="panel-body">
 	<c:choose>
 	<c:when test="${! empty thesises}">
-		<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add IssueReturn</button></a>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -12,6 +11,7 @@
 					<th>Thesis Name</th>
 					<th>Thesis Year</th>
 					<th>Thesis State</th>
+					<th>Options</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -19,8 +19,11 @@
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${thesis.thesisName}" /></td>
-						<td><c:out value="${thesis.thesisYear}"/></td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${thesis.thesisYear}" /></td>
 						<td><c:out value="${thesis.thesisState}"/></td>
+						<td><a href='<spring:url value="/Thesis/update/${thesis.id}"></spring:url>'>
+						<span class="glyphicon glyphicon-edit"></span>
+						</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

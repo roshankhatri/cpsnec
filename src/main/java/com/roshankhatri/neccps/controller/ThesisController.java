@@ -34,6 +34,24 @@ public class ThesisController {
 		model.addAttribute("thesises", thesises);
 		return "thesis/listThesis";
 	}
+	
+	@RequestMapping(value="/update/{thesisId}",method=RequestMethod.GET)
+	public String thesisedit(Model model,@PathVariable long thesisId){
+		model.addAttribute("student",thesisDao.getById(thesisId).getStudent());
+		model.addAttribute("thesis", thesisDao.getById(thesisId));
+		List<String> states=new LinkedList<>(Arrays.asList(new String[]{
+				"Initial","PreDefense","Defense","MidTerm","PreFinal","Final","Commit"
+		}));
+		model.addAttribute("states", states);
+		return "thesis/updateThesis";
+	}
+	
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String thesiseditpost(@ModelAttribute("thesis") Thesis thesis){
+		thesisDao.updateThesis(thesis);
+		return "redirect:/Thesis/";
+	}
+	
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
@@ -50,12 +68,12 @@ public class ThesisController {
 		return "thesis/newThesis";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String addpaymentpost(@ModelAttribute("thesis") Thesis thesis,@RequestParam("studentId") long studentId){
+	public String addpaymentpost(@ModelAttribute("thesis") Thesis thesis, @RequestParam("studentId") long studentId){
 		Student student=studentDao.getById(studentId);
 		thesis.setStudent(student);
 		thesisDao.save(thesis);
 		long studentId1=student.getId();
-		return "redirect:/Thesis/view/"+studentId1;		
+		return "redirect:/Thesis/view/"+studentId1;
 	}	
 	@RequestMapping(value="/view/{studentId}",method=RequestMethod.GET)
 	public String listbystudent(Model model,@PathVariable long studentId){
@@ -65,6 +83,5 @@ public class ThesisController {
 		model.addAttribute("thesises", thesises);
 		return "thesis/listThesisByStudent"; 
 	}
-
 }
 

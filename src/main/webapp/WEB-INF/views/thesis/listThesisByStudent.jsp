@@ -19,7 +19,7 @@
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${thesis.thesisName}" /></td>
-						<td><c:out value="${thesis.thesisYear}"/></td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${thesis.thesisYear}" /></td>
 						<td><c:out value="${thesis.thesisState}"/></td>
 					</tr>
 				</c:forEach>
