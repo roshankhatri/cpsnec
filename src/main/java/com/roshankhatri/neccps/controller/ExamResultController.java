@@ -30,14 +30,14 @@ public class ExamResultController {
 	public String listallpayment(Model model){
 		List<ExamResult> examResults=examResultDao.listall();
 		model.addAttribute("examResults", examResults);
-		return "listExamResult";
+		return "examresult/listExamResult";
 	}
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
 		model.addAttribute("student", student);
 		model.addAttribute("examResult", new ExamResult());
-		return "newExamResult";
+		return "examresult/newExamResult";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addpaymentpost(@ModelAttribute("examResult") ExamResult examResult,@RequestParam("studentId") long studentId){
@@ -51,7 +51,8 @@ public class ExamResultController {
 	public String listbystudent(Model model,@PathVariable long studentId){
 		List<ExamResult> examResults=examResultDao.listbyStudent(studentId);
 		model.addAttribute("examResults", examResults);
-		return "listExamResult"; 
+		model.addAttribute("student", studentDao.getById(studentId));
+		return "examresult/listExamResult"; 
 	}
 
 }

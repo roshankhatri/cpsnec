@@ -1,4 +1,4 @@
-<%@ include file="includes/header.jsp"%>
+<%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
 	<div class="panel-heading">Exam Result Information</div>
 	<!--panel body starts here-->
@@ -31,4 +31,4 @@
 	</div>
 	<!-- panel ends  -->
 </div>
-<%@ include file="includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>
