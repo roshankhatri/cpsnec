@@ -2,6 +2,8 @@ package com.roshankhatri.neccps.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,11 +39,11 @@ public class ProgramController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addprogrampost(@ModelAttribute("program") Program program, Errors errors) {
+	public String addprogrampost(@Valid @ModelAttribute("program") Program program, Errors errors) {
 		if (!errors.hasErrors()) {
 			programDao.save(program);
 		} else {
-			return "program";
+			return "program/newProgram";
 		}
 		return "redirect:/Program/";
 	}
