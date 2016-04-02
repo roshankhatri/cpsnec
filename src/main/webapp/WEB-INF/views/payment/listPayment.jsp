@@ -2,6 +2,8 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">All Payments list</div>
 	<div class="panel-body">
+	<c:choose>
+	<c:when test="${! empty payments}">
 		<a href='<spring:url value="/Program/"></spring:url>'><button
 				type="button" class="btn btn-success">
 				<span class="glyphicon glyphicon-plus"></span>Add Payments
@@ -24,6 +26,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		</c:when>
+		<c:otherwise>
+			<h4>No Payment has been added to the System</h4>
+		</c:otherwise>
+	</c:choose>
 	</div>
 </div>
 <%@ include file="../includes/footer.jsp"%>
