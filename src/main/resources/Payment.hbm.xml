@@ -8,7 +8,7 @@
             <column name="ACCOUNTPAYMENTID" />
             <generator class="identity" />
         </id>
-        <property name="paidAmount" type="long">
+        <property name="paidAmount" type="java.lang.Long">
             <column name="PAIDAMOUNT" />
         </property>
         <property name="paidDate" type="java.util.Date">

@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Payment {
 	private long accountPaymentId;
-	private long paidAmount;
+	private Long paidAmount;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date paidDate;
 	private Student student;
@@ -17,10 +17,10 @@ public class Payment {
 	public void setAccountPaymentId(long accountPaymentId) {
 		this.accountPaymentId = accountPaymentId;
 	}
-	public long getPaidAmount() {
+	public Long getPaidAmount() {
 		return paidAmount;
 	}
-	public void setPaidAmount(long paidAmount) {
+	public void setPaidAmount(Long paidAmount) {
 		this.paidAmount = paidAmount;
 	}
 	public Date getPaidDate() {
