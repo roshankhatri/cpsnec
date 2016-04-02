@@ -3,32 +3,51 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+
+	<bean
+		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 
 	<security:http pattern="/resources**" security="none" />
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/login"
 			access="permitAll" />
-		<security:intercept-url pattern="/Program/**"
-			access="hasRole('DBA') or hasRole('ADMIN')"  />
-		<security:intercept-url pattern="/Batch/**"
-			access="hasRole('COORDINATOR') or hasRole('ADMIN')" />
+		<security:intercept-url pattern="/Program/add/**"
+			access="hasRole('COORD') or hasRole('ADMIN')" />
+		<security:intercept-url pattern="/Batch/add/**"
+			access="hasRole('COORD') or hasRole('ADMIN')" />
+		<security:intercept-url pattern="/Student/add**"
+			access="hasRole('SECRET') or hasRole('ADMIN')" />
+		<security:intercept-url pattern="/Payment/add/**"
+			access="hasRole('PAY') or hasRole('ADMIN')" />
+		<security:intercept-url pattern="/ExamResult/add/**"
+			access="hasRole('EXAM') or hasRole('ADMIN')" />
+		<security:intercept-url pattern="/IssueReturn/add/**"
+			access="hasRole('IR') or hasRole('ADMIN')" />
+		<security:intercept-url pattern="/Thesis/add/**"
+			access="hasRole('THESIS') or hasRole('ADMIN')" />
 		<security:form-login login-page="/login"
 			username-parameter="ssoId" password-parameter="password"
-			authentication-failure-url="/login?error=true" default-target-url="/Program/" always-use-default-target="true"/>
+			authentication-failure-url="/login?error=true" />
 		<security:csrf />
-		<security:logout logout-success-url="/"/>
-
+		<security:logout logout-success-url="/" />
 	</security:http>
 
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
 				<security:user name="bill" password="123" authorities="ROLE_ADMIN" />
-				<security:user name="a" password="23" authorities="ROLE_DBA" />
-				<security:user name="co" password="co" authorities="ROLE_COORDINATOR" />
+				<security:user name="co" password="co"
+					authorities="ROLE_COORD,ROLE_VIEW" />
+				<security:user name="secret" password="secret"
+					authorities="ROLE_SECRET,ROLE_VIEW" />
+				<security:user name="exam" password="exam"
+					authorities="ROLE_EXAM,ROLE_VIEW" />
+				<security:user name="payment" password="payment"
+					authorities="ROLE_PAY,ROLE_VIEW" />
+				<security:user name="ir" password="ir" authorities="ROLE_IR,ROLE_VIEW" />
+				<security:user name="thesis" password="thesis"
+					authorities="ROLE_THESIS,ROLE_VIEW" />
 			</security:user-service>
 		</security:authentication-provider>
 
