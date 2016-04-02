@@ -31,7 +31,7 @@ public class IssueReturnController {
 	public String listallissueReturns(Model model){
 		List<IssueReturn> issueReturns=issueReturnDao.listall();
 		model.addAttribute("issueReturns", issueReturns);
-		return "listIssueReturn";
+		return "issuereturn/listIssueReturn";
 	}
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
@@ -42,7 +42,7 @@ public class IssueReturnController {
 		}));
 		model.addAttribute("checks", checks);
 		model.addAttribute("issueReturn", new IssueReturn());
-		return "newIssueReturn";
+		return "issuereturn/newIssueReturn";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addpaymentpost(@ModelAttribute("issueReturn") IssueReturn issueReturn,@RequestParam("studentId") long studentId,@RequestParam("issueReturnStatus") String issueReturnStatus){
@@ -61,7 +61,7 @@ public class IssueReturnController {
 		List<IssueReturn> issueReturns=issueReturnDao.listbyStudent(studentId);
 		model.addAttribute("student", studentDao.getById(studentId));
 		model.addAttribute("issueReturns", issueReturns);
-		return "listIssueReturn"; 
+		return "issuereturn/listIssueReturnByStudent"; 
 	}
 
 }

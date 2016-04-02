@@ -52,7 +52,7 @@ public class ExamResultController {
 		List<ExamResult> examResults=examResultDao.listbyStudent(studentId);
 		model.addAttribute("examResults", examResults);
 		model.addAttribute("student", studentDao.getById(studentId));
-		return "examresult/listExamResult"; 
+		return "examresult/listExamResultByStudent"; 
 	}
 
 }

@@ -1,6 +1,7 @@
 <%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">Exam Result Information</div>
+	<div class="panel-heading">Exam Result Information Student:<c:out value="${student.firstname} ${student.lastname}"/> Batch: 
+	<c:out value="${student.batch.batchYear}"></c:out> Program: <c:out value="${student.batch.program.programName}"/></div>
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
