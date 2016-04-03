@@ -12,11 +12,12 @@
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/login"
 			access="permitAll" />
+		<security:access-denied-handler error-page="/403"/>
 		<security:intercept-url pattern="/Program/add/**"
 			access="hasRole('COORD') or hasRole('ADMIN')" />
 		<security:intercept-url pattern="/Batch/add/**"
 			access="hasRole('COORD') or hasRole('ADMIN')" />
-		<security:intercept-url pattern="/Student/add**"
+		<security:intercept-url pattern="/Student/add/**"
 			access="hasRole('SECRET') or hasRole('ADMIN')" />
 		<security:intercept-url pattern="/Payment/add/**"
 			access="hasRole('PAY') or hasRole('ADMIN')" />

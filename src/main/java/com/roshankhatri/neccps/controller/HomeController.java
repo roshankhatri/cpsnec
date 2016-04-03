@@ -17,10 +17,10 @@ public class HomeController {
 	public String home() {
 		return "main";
 	}
-	@RequestMapping("/test")
+	@RequestMapping("/403")
 	public String testing() {
-		System.out.println("in test method");
-		return null;
+		System.out.println("403");
+		return "403";
 
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
