@@ -13,6 +13,7 @@ public interface BatchDao {
 	List<Batch> listall(long programId);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	Batch getById(long id);
+	@PreAuthorize("hasRole('COORD') OR hasRole('VIEW')")
 	long update(Batch batch);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<Batch> listAllWithoutProgram();

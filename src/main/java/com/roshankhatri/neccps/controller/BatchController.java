@@ -31,28 +31,18 @@ public class BatchController {
 			model.addAttribute("batches", batches);
 			return "progbatch";
 	}
-//
-//	@RequestMapping(value = "/addStudent/{batchId}", method = RequestMethod.GET)
-//	public String addStudentGet(Model model, @PathVariable long batchId) {
-//		model.addAttribute("batch", batchDao.getById(batchId));
-//		model.addAttribute("program", batchDao.getById(batchId).getProgram()
-//				.getProgramName());
-//		Student student = new Student();
-//		batchDao.getById(batchId).addStudent(student);
-//		model.addAttribute("student", new Student());
-//		model.addAttribute("batch", batchDao.getById(batchId));
-//		return "batch/newStudentOnBatch";
-//	}
-//
-//	@RequestMapping(value = "/showStudent/{batchId}", method = RequestMethod.GET)
-//	public String showStudents(Model model, @PathVariable long batchId) {
-//		Batch batch = batchDao.getById(batchId);
-//		List<Student> students = studentDao.getByBatchId(batch.getId());
-//		model.addAttribute("program", batch.getProgram().getProgramName());
-//		model.addAttribute("students", students);
-//		model.addAttribute("batch", batch);
-//		return "batch/studentlist";
-//	}
+
+	@RequestMapping(value = "/update/{batchId}", method = RequestMethod.GET)
+	public String addStudentGet(Model model, @PathVariable long batchId) {
+		model.addAttribute("batch", batchDao.getById(batchId));
+		return "batch/updateBatch";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String showStudents(@ModelAttribute("batch") Batch batch) {
+		batchDao.update(batch);
+		return "batch/studentlist";
+	}
 	
 	@RequestMapping(value={"/","/list"},method=RequestMethod.GET)
 	public String listallbatches(Model model){
@@ -84,6 +74,4 @@ public class BatchController {
 		model.addAttribute("batches", batches);
 		return "batch/listBatchByProgram";
 	}
-	
-	
 }

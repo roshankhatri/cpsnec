@@ -68,5 +68,4 @@ public class BatchDaoImpl implements BatchDao {
 		transaction.commit();
 		return id;
 	}
-
 }

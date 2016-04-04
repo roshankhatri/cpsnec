@@ -11,6 +11,7 @@
 							<th>Batch Year</th>
 							<th>Batch Intake</th>
 							<th>Student</th>
+							<th>Options</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -26,8 +27,15 @@
 								<sec:authorize access="hasRole('VIEW') or hasRole('ADMIN')">
 									<a href='<c:url value="/Student/view/${batch.id}"></c:url>'><span class="glyphicon glyphicon-search"></span></a>
 								</sec:authorize>
+								</td><td>
+								<sec:authorize access="hasRole('COORD') or hasRole('ADMIN')">
+									<a href='<c:url value="/Batch/update/${batch.id}"></c:url>'><span class="glyphicon glyphicon-edit"></span></a>
+								</sec:authorize>						
+								<sec:authorize access="hasRole('COORD') or hasRole('ADMIN')">
+									<a href='<c:url value="/Batch/delete/${batch.id}"></c:url>'><span class="glyphicon glyphicon-remove"></span></a>
+								</sec:authorize>						
 								</td>
-								</tr>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
