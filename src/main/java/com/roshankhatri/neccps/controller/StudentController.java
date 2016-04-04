@@ -1,5 +1,7 @@
 package com.roshankhatri.neccps.controller;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,12 @@ public class StudentController {
 		Batch batch=batchDao.getById(batchId);
 		Student student=new Student();
 		model.addAttribute("batch", batch);
+		List<String> zones=new LinkedList<>(Arrays.asList(new String[]{
+				"Mechi","Koshi","Sagarmatha","Janakpur","Bagmati","Narayani","Gandaki","Lumbini","Dhaulagiri","Rapti","Karnali","Bheri","Seti","Mahakali"
+		}));
+		model.addAttribute("zones", zones);
 		model.addAttribute("student",student);
+		
 		return "student/newStudent";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -67,5 +74,10 @@ public class StudentController {
 		List<Student> students = studentDao.getall();
 		model.addAttribute("students", students);
 		return "student/listStudent";
+	}
+	@RequestMapping(value="/update/{StudentId}",method=RequestMethod.GET)
+	public String updatestudent(Model model,@PathVariable long studentId) {
+		model.addAttribute("student", studentDao.getById(studentId));
+		return "student/updateStudent";
 	}
 }
