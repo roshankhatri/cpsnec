@@ -11,7 +11,7 @@
         <property name="programName" type="java.lang.String">
             <column name="PROGRAMNAME" />
         </property>
-        <set name="batches" table="BATCH" inverse="true" lazy="false" cascade="save-update">
+        <set name="batches" table="BATCH" inverse="true" lazy="false" cascade="all">
             <key>
                 <column name="PROGRAM_ID" />
             </key>

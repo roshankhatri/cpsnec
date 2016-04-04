@@ -64,7 +64,7 @@ public class BatchDaoImpl implements BatchDao {
 		Session session=this.sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
 		long id=(long) batch.getId();
-		session.update(batch);
+		session.saveOrUpdate(batch);
 		transaction.commit();
 		return id;
 	}

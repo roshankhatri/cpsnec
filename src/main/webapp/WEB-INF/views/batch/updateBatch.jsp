@@ -6,6 +6,7 @@
 	<div class="panel-body">
 		<!--form starts here-->
 		<form:form method="POST" action="/neccps/Batch/update" commandName="batch">
+			<input type="hidden" name="programId" value="${program.id}">
 			<input type="hidden" name="id" value="${batch.id}">
 			<div class="form-group">
 				<form:label path="batchYear">Batch Year</form:label>

@@ -34,12 +34,15 @@ public class BatchController {
 
 	@RequestMapping(value = "/update/{batchId}", method = RequestMethod.GET)
 	public String addStudentGet(Model model, @PathVariable long batchId) {
+		model.addAttribute("program", batchDao.getById(batchId).getProgram());
 		model.addAttribute("batch", batchDao.getById(batchId));
 		return "batch/updateBatch";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String showStudents(@ModelAttribute("batch") Batch batch) {
+	public String showStudents(@ModelAttribute("batch") Batch batch,@RequestParam("programId") long programId) {
+		Program program=programDao.getById(programId);
+		batch.setProgram(program);
 		batchDao.update(batch);
 		return "batch/studentlist";
 	}
