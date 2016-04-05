@@ -16,6 +16,8 @@
 	href='<spring:url value="/resources/css/bootstrap/css/custom.css"></spring:url>'>
 <link rel="stylesheet"
 	href='<spring:url value="/resources/css/bootstrap/css/bootstrap-select.min.css"></spring:url>'>	
+<link rel="stylesheet"
+	href='<spring:url value="/resources/css/bootstrap/css/jquery.calendars.picker.css"></spring:url>'>	
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

@@ -12,7 +12,7 @@
 			</div>
 			<div class="form-group">
 				<form:label path="thesisYear">Thesis Year</form:label>
-				<form:input path="thesisYear" cssClass="form-control" />
+				<form:input path="thesisYear" cssClass="form-control" id="popupDatepicker"/>
 			</div>
 			<div class="form-group">
 				<form:label path="thesisState">Thesis State</form:label>

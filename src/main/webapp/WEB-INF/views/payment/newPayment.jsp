@@ -13,7 +13,7 @@
 			</div>
 			<div class="form-group">
 				<form:label path="paidDate">Paid Date</form:label>
-				<form:input path="paidDate" cssClass="form-control" />
+				<form:input path="paidDate" cssClass="form-control" id="popupDatepicker" />
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">Submit</button>

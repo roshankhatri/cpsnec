@@ -18,7 +18,7 @@
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${issueReturn.issuedReturned}" /></td>
-						<td><c:out value="${issueReturn.issuedReturnedDate}"/></td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${issueReturn.issuedReturnedDate}"/></td>
 						<td><c:out value="${issueReturn.issueReturnStatus }"></c:out></td>
 					</tr>
 				</c:forEach>

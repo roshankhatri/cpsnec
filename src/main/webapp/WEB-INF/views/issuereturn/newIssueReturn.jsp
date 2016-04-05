@@ -13,7 +13,7 @@
 			</div>
 			<div class="form-group">
 				<form:label path="issuedReturnedDate">Issue Return Date</form:label>
-				<form:input path="issuedReturnedDate" cssClass="form-control" />
+				<form:input path="issuedReturnedDate" cssClass="form-control" id="popupDatepicker"/>
 			</div>
 			<div class="form-group">
 				<form:label path="issueReturnStatus">Issue Return Status</form:label>
