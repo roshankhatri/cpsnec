@@ -1,3 +1,8 @@
-/target/
+target/
 neccps.log
 *.log.[0-9]
+.classpath
+.project
+src/main/webapp/META-INF/MANIFEST.MF
+.springBeans
+
