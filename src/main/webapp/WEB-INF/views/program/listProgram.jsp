@@ -32,7 +32,7 @@
 						<td><c:choose>
 								<c:when test="${!empty program.batches}">
 									<a href='<c:url value="/Batch/view/${program.id}"></c:url>'><span
-										class="glyphicon glyphicon-search"></span></a>
+										class="glyphicon glyphicon-list"></span></a>
 								</c:when>
 							</c:choose></td>
 					</tr>

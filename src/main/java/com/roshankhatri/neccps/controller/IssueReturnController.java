@@ -48,11 +48,18 @@ public class IssueReturnController {
 	public String addpaymentpost(@ModelAttribute("issueReturn") IssueReturn issueReturn,@RequestParam("studentId") long studentId,@RequestParam("issueReturnStatus") String issueReturnStatus){
 		Student student=studentDao.getById(studentId);
 		issueReturn.setStudent(student);
-		if(issueReturnStatus=="Issue")
-			System.out.println("Issue");
-		else
-			System.out.println("Return");
-		issueReturnDao.save(issueReturn);
+		if(issueReturnStatus.equalsIgnoreCase("Issue")){
+			long diff=student.getIssueableBooks()-issueReturn.getIssuedReturned();
+			student.setIssueableBooks(diff);
+			studentDao.update(student);
+			issueReturnDao.save(issueReturn);
+		}
+		else{
+			long diff=student.getIssueableBooks()+issueReturn.getIssuedReturned();
+			student.setIssueableBooks(diff);
+			studentDao.update(student);
+			issueReturnDao.save(issueReturn);
+		}
 		long studentId1=student.getId();
 		return "redirect:/IssueReturn/view/"+studentId1;		
 	}	

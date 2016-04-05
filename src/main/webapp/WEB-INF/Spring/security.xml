@@ -41,12 +41,12 @@
 				<security:user name="co" password="co"
 					authorities="ROLE_COORD,ROLE_VIEW" />
 				<security:user name="secret" password="secret"
-					authorities="ROLE_SECRET,ROLE_VIEW" />
+					authorities="ROLE_SECRET,ROLE_VIEW,ROLE_BEL" />
 				<security:user name="exam" password="exam"
 					authorities="ROLE_EXAM,ROLE_VIEW" />
 				<security:user name="payment" password="payment"
-					authorities="ROLE_PAY,ROLE_VIEW" />
-				<security:user name="ir" password="ir" authorities="ROLE_IR,ROLE_VIEW" />
+					authorities="ROLE_PAY,ROLE_VIEW,ROLE_BEL" />
+				<security:user name="ir" password="ir" authorities="ROLE_IR,ROLE_VIEW,ROLE_BEL" />
 				<security:user name="thesis" password="thesis"
 					authorities="ROLE_THESIS,ROLE_VIEW" />
 			</security:user-service>

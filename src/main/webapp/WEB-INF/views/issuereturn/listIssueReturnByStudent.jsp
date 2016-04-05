@@ -5,7 +5,8 @@
 	<div class="panel-body">
 	<c:choose>
 		<c:when test="${! empty issueReturns}">
-	<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add IssueReturn</button></a>
+		<h5>Total Issueable Books: <c:out value="${student.issueableBooks }"></c:out> 
+		</h5>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -20,7 +21,7 @@
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
 						<td><c:out value="${issueReturn.issuedReturned}" /></td>
-						<td><c:out value="${issueReturn.issuedReturnedDate}"/></td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${issueReturn.issuedReturnedDate}"/></td>
 						<td><c:out value="${issueReturn.issueReturnStatus }"></c:out></td>
 					</tr>
 				</c:forEach>

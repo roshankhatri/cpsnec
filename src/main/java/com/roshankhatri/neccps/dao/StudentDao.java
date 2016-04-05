@@ -9,7 +9,7 @@ import com.roshankhatri.neccps.model.Student;
 public interface StudentDao {
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('SECRET')")
 	long save(Student student);
-	@PreAuthorize("hasRole('ADMIN') OR hasRole('SECRET')")
+	@PreAuthorize("hasRole('ADMIN') OR hasRole('BEL')")
 	void update(Student student);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	Student getById(long id);

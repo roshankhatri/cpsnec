@@ -11,7 +11,9 @@
 					<th>Thesis Name</th>
 					<th>Thesis Year</th>
 					<th>Thesis State</th>
+					<sec:authorize access="hasRole('THESIS') or hasRole('ADMIN')">
 					<th>Options</th>
+					</sec:authorize>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,9 +23,12 @@
 						<td><c:out value="${thesis.thesisName}" /></td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${thesis.thesisYear}" /></td>
 						<td><c:out value="${thesis.thesisState}"/></td>
-						<td><a href='<spring:url value="/Thesis/update/${thesis.id}"></spring:url>'>
+						<sec:authorize access="hasRole('THESIS') or hasRole('ADMIN')">
+						<td>
+						<a href='<spring:url value="/Thesis/update/${thesis.id}"></spring:url>'>
 						<span class="glyphicon glyphicon-edit"></span>
 						</a></td>
+						</sec:authorize>
 					</tr>
 				</c:forEach>
 			</tbody>

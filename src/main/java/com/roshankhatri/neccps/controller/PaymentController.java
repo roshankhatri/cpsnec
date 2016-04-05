@@ -41,6 +41,13 @@ public class PaymentController {
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addpaymentpost(@ModelAttribute("payment") Payment payment,@RequestParam("studentId") long studentId){
 		Student student=studentDao.getById(studentId);
+		long payableAmount=student.getPayableAmount();
+		long paidAmount=payment.getPaidAmount();
+		long diff=payableAmount-paidAmount;
+		if(diff>0){
+			student.setPayableAmount(diff);
+			studentDao.update(student);
+		}
 		payment.setStudent(student);
 		paymentDao.save(payment);
 		long studentId1=student.getId();

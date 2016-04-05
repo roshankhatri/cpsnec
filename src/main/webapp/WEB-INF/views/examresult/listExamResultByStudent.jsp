@@ -4,8 +4,7 @@
 	<c:out value="${student.batch.batchYear}"></c:out> Program: <c:out value="${student.batch.program.programName}"/></div>
 	<div class="panel-body">
 	<c:choose>
-		<c:when test="${! empty examResult}">
-	<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add IssueReturn</button></a>
+		<c:when test="${! empty examResults}">
 		<table class="table table-striped">
 			<thead>
 				<tr>

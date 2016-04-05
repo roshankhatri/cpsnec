@@ -3,7 +3,7 @@
 	<div class="panel-heading">All IssueReturn list</div>
 	<div class="panel-body">
 	<c:choose>
-		<c:when test="${!empty issueReturns}">	<a href='<spring:url value="/Program/"></spring:url>'><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add IssueReturn</button></a>
+		<c:when test="${!empty issueReturns}">
 		<table class="table table-striped">
 			<thead>
 				<tr>

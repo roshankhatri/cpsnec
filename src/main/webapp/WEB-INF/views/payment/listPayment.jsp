@@ -4,10 +4,6 @@
 	<div class="panel-body">
 	<c:choose>
 	<c:when test="${! empty payments}">
-		<a href='<spring:url value="/Program/"></spring:url>'><button
-				type="button" class="btn btn-success">
-				<span class="glyphicon glyphicon-plus"></span>Add Payments
-			</button></a>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -21,7 +17,7 @@
 					<tr>
 						<td><c:out value="${thecount.count}" />
 						<td><c:out value="${payment.paidAmount}" /></td>
-						<td><c:out value="${payment.paidDate}" /></td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${payment.paidDate}" /></td>
 					</tr>
 				</c:forEach>
 			</tbody>

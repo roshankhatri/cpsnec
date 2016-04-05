@@ -12,7 +12,8 @@
 			</div>
 			<div class="form-group">
 				<form:label path="thesisYear">Thesis Year</form:label>
-				<form:input path="thesisYear" cssClass="form-control" value="${thesis.thesisYear}"/>
+				<fmt:formatDate value="${thesis.thesisYear}" pattern="yyyy-MM-dd" var="fmtthesisyear"/>
+				<form:input path="thesisYear" cssClass="form-control" value="${fmtthesisyear}" />
 			</div>
 			<div class="form-group">
 				<form:label path="thesisState">Thesis State</form:label>
