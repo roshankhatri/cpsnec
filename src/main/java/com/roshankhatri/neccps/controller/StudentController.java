@@ -50,7 +50,6 @@ public class StudentController {
 		}));
 		model.addAttribute("zones", zones);
 		model.addAttribute("student",student);
-		
 		return "student/newStudent";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -75,9 +74,27 @@ public class StudentController {
 		model.addAttribute("students", students);
 		return "student/listStudent";
 	}
-	@RequestMapping(value="/update/{StudentId}",method=RequestMethod.GET)
+	
+	@RequestMapping(value="/update/{studentId}",method=RequestMethod.GET)
 	public String updatestudent(Model model,@PathVariable long studentId) {
 		model.addAttribute("student", studentDao.getById(studentId));
+		model.addAttribute("batch", studentDao.getById(studentId).getBatch());
+		List<String> zones=new LinkedList<>(Arrays.asList(new String[]{
+				"Mechi","Koshi","Sagarmatha","Janakpur","Bagmati","Narayani","Gandaki","Lumbini","Dhaulagiri","Rapti","Karnali","Bheri","Seti","Mahakali"
+		}));
+		model.addAttribute("zones", zones);
 		return "student/updateStudent";
+	}
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String updatestudentpost(@ModelAttribute("student") Student student,@RequestParam("batchId") long batchId){
+		Batch batch=batchDao.getById(batchId);
+		student.setBatch(batch);
+		studentDao.update(student);
+		return "student/listStudent";
+	}
+	@RequestMapping(value="/detail/{studentId}",method=RequestMethod.GET)
+	public String getStudentdetails(Model model,@PathVariable long studentId){
+		model.addAttribute("student", studentDao.getById(studentId));
+		return "student/studentDetail";
 	}
 }

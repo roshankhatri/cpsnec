@@ -7,8 +7,10 @@
 			<thead>
 				<tr>
 					<th>S.No</th>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th>Name</th>
+					<sec:authorize access="hasRole('SECRET') or hasRole('ADMIN')">
+					<th>Option</th>
+					</sec:authorize>
 					<th>Payment</th>
 					<th>Issue Return</th>
 					<th>ExamResult</th>
@@ -19,8 +21,13 @@
 				<c:forEach items="${students}" var="student" varStatus="thecount">
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
-						<td><c:out value="${student.firstname}" /></td>
-						<td><c:out value="${student.lastname}" /></td>
+						<td><c:out value="${student.firstname} ${student.lastname}" /></td>
+						<sec:authorize access="hasRole('SECRET') or hasRole('ADMIN')">
+						<td>
+							<a href='<spring:url value="/Student/update/${student.id}"></spring:url>'><span class="glyphicon glyphicon-edit"></span></a>
+							<a href='<spring:url value="/Student/detail/${student.id}"></spring:url>'><span class="glyphicon glyphicon-list"></span></a>
+						</td>
+						</sec:authorize>
 						<td>
 							<sec:authorize access="hasRole('PAY') or hasRole('ADMIN')">
 							<a href='<spring:url value="/Payment/add/${student.id}"></spring:url>'><span class="glyphicon glyphicon-plus"></span></a>

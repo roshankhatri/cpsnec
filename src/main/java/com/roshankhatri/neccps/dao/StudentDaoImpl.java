@@ -56,5 +56,12 @@ public class StudentDaoImpl implements StudentDao {
 		transaction.commit();
 		return students;
 	}
+	@Override
+	public void update(Student student) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		session.update(student);
+		transaction.commit();
+	}
 
 }

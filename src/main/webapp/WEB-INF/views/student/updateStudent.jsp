@@ -9,9 +9,10 @@
 	<!--panel body starts here-->
 	<div class="panel-body">
 		<!--form starts here-->
-		<form:form method="POST" action="/neccps/Student/add"
+		<form:form method="POST" action="/neccps/Student/update"
 			commandName="student">
 			<input type="hidden" name="batchId" value="${batch.id}">
+			<input type="hidden" name="id" value="${student.id}">
 			<div class="form-group">
 				<form:label path="firstname">First Name</form:label>
 				<form:input path="firstname" cssClass="form-control" value="${student.firstname}"/>

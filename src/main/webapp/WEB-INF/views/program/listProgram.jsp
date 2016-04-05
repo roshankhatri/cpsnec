@@ -23,7 +23,7 @@
 						<td><c:out value="${program.id}" /></td>
 						<td><c:out value="${program.programName}" /></td>
 						<td>
-						<sec:authorize access="hasRole('COORD')">
+						<sec:authorize access="hasRole('COORD') or hasRole('ADMIN')">
 						<a
 							href='<c:url value="/Batch/add/${program.id}"></c:url>'> <span
 								class="glyphicon glyphicon-plus"></span></a>
