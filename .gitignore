@@ -6,3 +6,4 @@ neccps.log
 src/main/webapp/META-INF/MANIFEST.MF
 .springBeans
 
+/bin/

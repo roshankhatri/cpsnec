@@ -3,7 +3,6 @@ body {
   padding-bottom: 40px;
   background-color: #eee;
 }
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -38,3 +37,16 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  }
+.text-center {
+  text-align: center;
+}​

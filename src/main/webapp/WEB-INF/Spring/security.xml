@@ -29,10 +29,12 @@
 			access="hasRole('THESIS') or hasRole('ADMIN')" />
 		<security:form-login login-page="/login"
 			username-parameter="ssoId" password-parameter="password"
-			authentication-failure-url="/login?error=true" />
+			authentication-failure-url="/login?error=true" authentication-success-handler-ref="cpsAuthSuccessHandler"/>
 		<security:csrf />
 		<security:logout logout-success-url="/" />
 	</security:http>
+	
+	<bean id="cpsAuthSuccessHandler" class="com.roshankhatri.neccps.security.CpsSimpleAuthenticationSuccessHandler"/>
 
 	<security:authentication-manager>
 		<security:authentication-provider>
