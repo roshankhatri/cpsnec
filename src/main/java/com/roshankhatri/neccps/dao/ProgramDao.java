@@ -14,5 +14,6 @@ public interface ProgramDao {
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	Program getById(long id);
 	long update(Program program);
+	long getCount();
 
 }

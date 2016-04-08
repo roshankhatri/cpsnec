@@ -46,6 +46,16 @@ public class IssueReturnDaoImpl implements IssueReturnDao {
 		List<IssueReturn> issueReturns = query.list();
 		transaction.commit();
 		return issueReturns;
+	}
+
+	@Override
+	public long getCount() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query=session.createQuery("select count(*) from IssueReturn");
+		long countIssueReturns=(Long) query.uniqueResult();
+		transaction.commit();
+		return countIssueReturns;
 	}	
 
 }

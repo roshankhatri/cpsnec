@@ -17,5 +17,6 @@ public interface BatchDao {
 	long update(Batch batch);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<Batch> listAllWithoutProgram();
+	long getCount();
 
 }

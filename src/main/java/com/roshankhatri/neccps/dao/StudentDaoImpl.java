@@ -63,5 +63,14 @@ public class StudentDaoImpl implements StudentDao {
 		session.update(student);
 		transaction.commit();
 	}
+	@Override
+	public long getCount() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query=session.createQuery("select count(*) from Student");
+		long countStudents=(Long) query.uniqueResult();
+		transaction.commit();
+		return countStudents;
+	}
 
 }

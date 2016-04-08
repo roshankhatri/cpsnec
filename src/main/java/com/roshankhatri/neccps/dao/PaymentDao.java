@@ -13,5 +13,5 @@ public interface PaymentDao {
 	void save(Payment Payment);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<Payment> listbyStudent(long studentId);
-
+	long getCount();
 }

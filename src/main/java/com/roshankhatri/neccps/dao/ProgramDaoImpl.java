@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -56,6 +57,16 @@ public class ProgramDaoImpl implements ProgramDao {
 		session.update(program);
 		transaction.commit();
 		return id;
+	}
+
+	@Override
+	public long getCount() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query=session.createQuery("select count(*) from Program");
+		long countPrograms=(Long) query.uniqueResult();
+		transaction.commit();
+		return countPrograms;
 	}
 
 }

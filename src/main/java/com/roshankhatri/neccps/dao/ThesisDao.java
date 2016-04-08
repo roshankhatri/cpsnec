@@ -13,8 +13,9 @@ public interface ThesisDao {
 	void save(Thesis thesis);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<Thesis> listbyStudent(long StudentId);
-	
+
 	Thesis getById(long thesisId);
 	void updateThesis(Thesis thesis);
+	long getCount();
 	
 }
