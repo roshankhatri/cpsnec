@@ -2,9 +2,12 @@ package com.roshankhatri.neccps.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +43,7 @@ public class BatchController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String showStudents(@ModelAttribute("batch") Batch batch,@RequestParam("programId") long programId) {
+	public String showStudents(@RequestParam("programId") long programId,@ModelAttribute("batch") Batch batch) {
 		Program program=programDao.getById(programId);
 		batch.setProgram(program);
 		batchDao.update(batch);
@@ -63,8 +66,11 @@ public class BatchController {
 	}
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String addnewbatchpost(@ModelAttribute("batch") Batch batch,@RequestParam("programId") long programId)
-	{	Program program=programDao.getById(programId);
+	public String addnewbatchpost(@RequestParam("programId") long programId,@Valid @ModelAttribute("batch") Batch batch,Errors errors)
+	{	if(errors.hasErrors()){
+			System.out.println("got there");
+		}
+		Program program=programDao.getById(programId);
 		batch.setProgram(program);
 		batchDao.save(batch);
 		long programId1=program.getId();
