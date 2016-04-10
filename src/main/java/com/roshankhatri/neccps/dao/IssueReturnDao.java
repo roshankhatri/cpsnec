@@ -13,4 +13,5 @@ public interface IssueReturnDao {
 	void save(IssueReturn issueReturn);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<IssueReturn> listbyStudent(long studentId);
+	long getCount();
 }

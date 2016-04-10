@@ -13,4 +13,5 @@ public interface ExamResultDao {
 	void save(ExamResult examResult);
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<ExamResult> listbyStudent(long studentId);
+	long getCount();
 }

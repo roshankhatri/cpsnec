@@ -68,4 +68,14 @@ public class BatchDaoImpl implements BatchDao {
 		transaction.commit();
 		return id;
 	}
+
+	@Override
+	public long getCount() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query=session.createQuery("select count(*) from Batch");
+		long countBatches=(Long) query.uniqueResult();
+		transaction.commit();
+		return countBatches;
+	}
 }

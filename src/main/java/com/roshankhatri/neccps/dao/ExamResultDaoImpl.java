@@ -49,4 +49,14 @@ public class ExamResultDaoImpl implements ExamResultDao {
 		return examResults;
 	}
 
+	@Override
+	public long getCount() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query=session.createQuery("select count(*) from ExamResult");
+		long countExams=(Long) query.uniqueResult();
+		transaction.commit();
+		return countExams;
+	}
+
 }

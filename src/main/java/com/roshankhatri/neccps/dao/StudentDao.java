@@ -17,5 +17,6 @@ public interface StudentDao {
 	List<Student> getall();
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<Student> getByBatchId(long BatchId);
+	long getCount();
 
 }

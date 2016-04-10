@@ -60,5 +60,14 @@ public class ThesisDaoImpl implements ThesisDao{
 		session.update(thesis);
 		transaction.commit();
 	}
+	@Override
+	public long getCount() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query=session.createQuery("select count(*) from Thesis");
+		long countThesises=(Long) query.uniqueResult();
+		transaction.commit();
+		return countThesises;
+	}
 
 }

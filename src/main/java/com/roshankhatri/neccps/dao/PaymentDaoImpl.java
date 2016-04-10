@@ -44,4 +44,14 @@ public class PaymentDaoImpl implements PaymentDao {
 		
 	}
 
+	@Override
+	public long getCount() {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query=session.createQuery("select count(*) from Payment");
+		long countPayments=(Long) query.uniqueResult();
+		transaction.commit();
+		return countPayments;
+	}
+
 }
