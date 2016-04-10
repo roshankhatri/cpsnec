@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.roshankhatri.neccps.dao.BatchDao;
 import com.roshankhatri.neccps.dao.ProgramDao;
@@ -65,7 +66,7 @@ public class StudentController {
 		List<Student> students=studentDao.getByBatchId(batchId);
 		model.addAttribute("batch", batchDao.getById(batchId));
 		model.addAttribute("students", students);
-		return "student/listStudentByBatch";
+		return "student/listStudentByBatchJson";
 	}
 
 	@RequestMapping(value = {"/","/list"}, method = RequestMethod.GET)
@@ -97,4 +98,10 @@ public class StudentController {
 		model.addAttribute("student", studentDao.getById(studentId));
 		return "student/studentDetail";
 	}
+	@RequestMapping(value="/get/json")
+	@ResponseBody
+	public List<Student> getall(){
+		return studentDao.getall();
+	}
+	
 }

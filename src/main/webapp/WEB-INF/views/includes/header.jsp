@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -5,7 +6,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,6 +18,8 @@
 	href='<spring:url value="/resources/css/bootstrap/css/bootstrap-select.min.css"></spring:url>'>	
 <link rel="stylesheet"
 	href='<spring:url value="/resources/css/bootstrap/css/jquery.calendars.picker.css"></spring:url>'>	
+<script src='<spring:url value="/resources/css/bootstrap/js/angular.min.js"></spring:url>'></script>
+<script src='<spring:url value="/resources/css/bootstrap/js/app.js"></spring:url>'></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

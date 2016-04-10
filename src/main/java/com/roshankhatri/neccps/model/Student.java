@@ -3,18 +3,25 @@ package com.roshankhatri.neccps.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Student {
 	private long id;
 	private String firstname;
 	private String lastname;
+	@JsonIgnore
 	private Thesis thesis;
+	@JsonIgnore
 	private Batch batch;
 	private Long payableAmount;
 	private Long issueableBooks;
 	private Address address;
 	private Contact contact;
+	@JsonIgnore
 	private Set<Payment> payments=new HashSet<Payment>();
+	@JsonIgnore
 	private Set<IssueReturn> issueReturns=new HashSet<IssueReturn>();
+	@JsonIgnore
 	private Set<ExamResult> examResults=new HashSet<ExamResult>();
 	
 	public long getId() {
