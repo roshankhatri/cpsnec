@@ -46,7 +46,7 @@ public class HomeController {
 	public String home() {
 		return "main";
 	}
-	@RequestMapping(value="/Home/stats",method=RequestMethod.GET)
+	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String getstats(Model model){
 		model.addAttribute("programs", programDao.getCount());
 		model.addAttribute("batches", batchDao.getCount());
