@@ -11,22 +11,29 @@
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/login"
-			access="permitAll" />
+			access="permitAll" requires-channel="https"/>
 		<security:access-denied-handler error-page="/403"/>
 		<security:intercept-url pattern="/Program/add/**"
 			access="hasRole('COORD') or hasRole('ADMIN')" />
+			
 		<security:intercept-url pattern="/Batch/add/**"
 			access="hasRole('COORD') or hasRole('ADMIN')" />
+			
 		<security:intercept-url pattern="/Student/add/**"
 			access="hasRole('SECRET') or hasRole('ADMIN')" />
+			
 		<security:intercept-url pattern="/Payment/add/**"
 			access="hasRole('PAY') or hasRole('ADMIN')" />
+			
 		<security:intercept-url pattern="/ExamResult/add/**"
 			access="hasRole('EXAM') or hasRole('ADMIN')" />
+			
 		<security:intercept-url pattern="/IssueReturn/add/**"
 			access="hasRole('IR') or hasRole('ADMIN')" />
+			
 		<security:intercept-url pattern="/Thesis/add/**"
 			access="hasRole('THESIS') or hasRole('ADMIN')" />
+			
 		<security:form-login login-page="/login"
 			username-parameter="ssoId" password-parameter="password"
 			authentication-failure-url="/login?error=true" authentication-success-handler-ref="cpsAuthSuccessHandler"/>

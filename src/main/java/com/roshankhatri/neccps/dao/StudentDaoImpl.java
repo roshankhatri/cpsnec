@@ -72,5 +72,16 @@ public class StudentDaoImpl implements StudentDao {
 		transaction.commit();
 		return countStudents;
 	}
+	@Override
+	public List<Student> search(String searchStudent) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		Query query = session.createQuery("from Student s where s.firstname like :searchStudent");
+		query.setString("searchStudent", '%'+searchStudent+'%');
+		@SuppressWarnings("unchecked")
+		List<Student> students = query.list();
+		transaction.commit();
+		return students;
+	}
 
 }

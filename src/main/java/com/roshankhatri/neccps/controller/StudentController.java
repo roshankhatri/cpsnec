@@ -66,10 +66,10 @@ public class StudentController {
 		List<Student> students=studentDao.getByBatchId(batchId);
 		model.addAttribute("batch", batchDao.getById(batchId));
 		model.addAttribute("students", students);
-		return "student/listStudentByBatchJson";
+		return "student/listStudentByBatch";
 	}
 
-	@RequestMapping(value = {"/","/list"}, method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String home1(Model model) {
 		List<Student> students = studentDao.getall();
 		model.addAttribute("students", students);
@@ -98,10 +98,25 @@ public class StudentController {
 		model.addAttribute("student", studentDao.getById(studentId));
 		return "student/studentDetail";
 	}
+	
 	@RequestMapping(value="/get/json")
 	@ResponseBody
 	public List<Student> getall(){
 		return studentDao.getall();
+	}
+	
+	@RequestMapping(value={"/","/search"},method=RequestMethod.GET)
+	public String searchstudentget(Model model){
+		model.addAttribute("student", new Student());
+		return "student/searchStudent";
+	}
+	
+	@RequestMapping(value="/search",method=RequestMethod.POST)
+	public String searchstudent(@ModelAttribute("student") Student student,Model model){
+		String searchName=student.getFirstname();
+		List<Student> students=studentDao.search(searchName);
+		model.addAttribute("students", students);
+		return "student/listStudent";
 	}
 	
 }

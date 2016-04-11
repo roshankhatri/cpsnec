@@ -9,14 +9,23 @@ import com.roshankhatri.neccps.model.Student;
 public interface StudentDao {
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('SECRET')")
 	long save(Student student);
+	
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('BEL')")
 	void update(Student student);
+	
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	Student getById(long id);
+	
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<Student> getall();
+	
 	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	List<Student> getByBatchId(long BatchId);
+	
+	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
 	long getCount();
+	
+	@PreAuthorize("hasRole('ADMIN') OR hasRole('VIEW')")
+	List<Student> search(String searchStudent);
 
 }
