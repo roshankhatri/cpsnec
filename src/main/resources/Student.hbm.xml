@@ -42,6 +42,23 @@
 				<column name="MAIL" />
 			</property>
 		</component>
+		<component name="degree">
+		<property name="lastdegree" type="java.lang.String">
+            <column name="LASTDEGREE" />
+        </property>
+        <property name="university" type="java.lang.String">
+            <column name="UNIVERSITY" />
+        </property>
+		
+		</component>
+		<component name="parent">
+			  <property name="fathername" type="java.lang.String">
+            <column name="FATHERNAME" />
+        </property>
+        <property name="mothername" type="java.lang.String">
+            <column name="MOTHERNAME" />
+        </property>
+        </component>
 		<one-to-one name="thesis" class="com.roshankhatri.neccps.model.Thesis"
 			cascade="save-update" />
 		<many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch"

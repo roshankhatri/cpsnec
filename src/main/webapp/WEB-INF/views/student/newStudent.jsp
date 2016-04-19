@@ -21,12 +21,28 @@
 				<form:input path="lastname" cssClass="form-control" />
 			</div>
 			<div class="form-group">
+				<form:label path="parent.fathername">Father Name</form:label>
+				<form:input path="parent.fathername" cssClass="form-control" />
+			</div>
+			<div class="form-group">
+				<form:label path="parent.mothername">Mother Name</form:label>
+				<form:input path="parent.mothername" cssClass="form-control" />
+			</div>
+			<div class="form-group">
 				<form:label path="payableAmount">Payable Amount</form:label>
 				<form:input path="payableAmount" cssClass="form-control" />
 			</div>
 			<div class="form-group">
 				<form:label path="issueableBooks">Issueable Books</form:label>
 				<form:input path="issueableBooks" cssClass="form-control" />
+			</div>
+			<div class="form-group">
+				<form:label path="degree.lastdegree">Last Degree</form:label>
+				<form:input path="degree.lastdegree" cssClass="form-control" />
+			</div>
+			<div class="form-group">
+				<form:label path="degree.university">University</form:label>
+				<form:input path="degree.university" cssClass="form-control" />
 			</div>
 			<div class="form-group">
 				<form:label path="address.zone">Zone</form:label>

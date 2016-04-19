@@ -13,6 +13,8 @@ public class Student {
 	private Thesis thesis;
 	@JsonIgnore
 	private Batch batch;
+	private Parent parent;
+	private Degree degree;
 	private Long payableAmount;
 	private Long issueableBooks;
 	private Address address;
@@ -95,6 +97,18 @@ public class Student {
 	}
 	public void setIssueableBooks(Long issueableBooks) {
 		this.issueableBooks = issueableBooks;
+	}
+	public Parent getParent() {
+		return parent;
+	}
+	public void setParent(Parent parent) {
+		this.parent = parent;
+	}
+	public Degree getDegree() {
+		return degree;
+	}
+	public void setDegree(Degree degree) {
+		this.degree = degree;
 	}
 
 }

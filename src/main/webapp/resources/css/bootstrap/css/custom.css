@@ -5,5 +5,8 @@
 	margin-top: 20px;
 }
 #input{
-	width: 0px;
+	width: 750px;
+}
+#input:focus{
+	width:850px;
 }
