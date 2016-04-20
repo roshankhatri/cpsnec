@@ -20,6 +20,7 @@
 		<property name="issueableBooks" type="java.lang.Long">
 			<column name="ISSUABLEBOOKS"></column>
 		</property>
+
 		<component name="address">
 			<property name="district" type="java.lang.String">
 				<column name="DISTRICT" />
@@ -31,6 +32,7 @@
 				<column name="LOCALITY" />
 			</property>
 		</component>
+
 		<component name="contact">
 			<property name="mobile" type="java.lang.Long">
 				<column name="MOBILE" />
@@ -42,46 +44,68 @@
 				<column name="MAIL" />
 			</property>
 		</component>
+
 		<component name="degree">
-		<property name="lastdegree" type="java.lang.String">
-            <column name="LASTDEGREE" />
-        </property>
-        <property name="university" type="java.lang.String">
-            <column name="UNIVERSITY" />
-        </property>
-		
+			<property name="lastdegree" type="java.lang.String">
+				<column name="LASTDEGREE" />
+			</property>
+			<property name="university" type="java.lang.String">
+				<column name="UNIVERSITY" />
+			</property>
+
 		</component>
 		<component name="parent">
-			  <property name="fathername" type="java.lang.String">
-            <column name="FATHERNAME" />
-        </property>
-        <property name="mothername" type="java.lang.String">
-            <column name="MOTHERNAME" />
-        </property>
-        </component>
-		<one-to-one name="thesis" class="com.roshankhatri.neccps.model.Thesis"
-			cascade="save-update" />
+			<property name="fathername" type="java.lang.String">
+				<column name="FATHERNAME" />
+			</property>
+			<property name="mothername" type="java.lang.String">
+				<column name="MOTHERNAME" />
+			</property>
+		</component>
+
+		<component name="thesism">
+			<property name="thesisName" type="java.lang.String">
+				<column name="THESISNAME" />
+			</property>
+			<property name="thesisSup" type="java.lang.String">
+				<column name="THESISSUP" />
+			</property>
+			<property name="thesisCoSup" type="java.lang.String">
+				<column name="THESISCOSUP" />
+			</property>
+		</component>
+
 		<many-to-one name="batch" class="com.roshankhatri.neccps.model.Batch"
 			fetch="join">
 			<column name="BATCH_ID"></column>
 		</many-to-one>
+
 		<set name="payments" table="PAYMENT" inverse="true" lazy="false">
 			<key>
 				<column name="STUDENT_ID" />
 			</key>
 			<one-to-many class="com.roshankhatri.neccps.model.Payment" />
 		</set>
+
 		<set name="issueReturns" table="ISSUERETURN" inverse="true" lazy="false">
 			<key>
 				<column name="STUDENT_ID" />
 			</key>
 			<one-to-many class="com.roshankhatri.neccps.model.IssueReturn" />
 		</set>
+
 		<set name="examResults" table="EXAMRESULT" inverse="true" lazy="false">
 			<key>
 				<column name="STUDENT_ID" />
 			</key>
 			<one-to-many class="com.roshankhatri.neccps.model.ExamResult" />
+		</set>
+
+		<set name="thesisHistory" table="THESIS" inverse="true" lazy="false">
+			<key>
+				<column name="STUDENT_ID" />
+			</key>
+			<one-to-many class="com.roshankhatri.neccps.model.Thesis" />
 		</set>
 	</class>
 </hibernate-mapping>

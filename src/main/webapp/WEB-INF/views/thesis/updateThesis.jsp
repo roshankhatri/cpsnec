@@ -7,10 +7,6 @@
 		<form:form method="POST" action="/neccps/Thesis/update" commandName="thesis">
 			<input type="hidden" name="id" value="${thesis.id}"> 
 			<div class="form-group">
-				<form:label path="thesisName">Thesis Name</form:label>
-				<form:input path="thesisName" cssClass="form-control" value="${thesis.thesisName}" />
-			</div>
-			<div class="form-group">
 				<form:label path="thesisYear">Thesis Year</form:label>
 				<fmt:formatDate value="${thesis.thesisYear}" pattern="yyyy-MM-dd" var="fmtthesisyear"/>
 				<form:input path="thesisYear" cssClass="form-control" value="${fmtthesisyear}" />

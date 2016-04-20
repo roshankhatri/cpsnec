@@ -54,6 +54,18 @@
 				<form:input path="contact.mail" cssClass="form-control" value="${contact.mail}"/>
 			</div>
 			<div class="form-group">
+				<form:label path="thesism.thesisName">Thesis Name</form:label>
+				<form:input path="thesism.thesisName" cssClass="form-control" value="${thesism.thesisName}" />
+			</div>
+			<div class="form-group">
+				<form:label path="thesism.thesisSup">Thesis Supervisor</form:label>
+				<form:input path="thesism.thesisSup" cssClass="form-control" value="${thesism.thesisSup}"/>
+			</div>
+			<div class="form-group">
+				<form:label path="thesism.thesisCoSup">Thesis Co-Supervisor</form:label>
+				<form:input path="thesism.thesisCoSup" cssClass="form-control" value="${thesism.thesisCoSup}"/>
+			</div>
+			<div class="form-group">
 				<button type="submit" class="btn btn-default">Submit</button>
 			</div>
 			<!-- form ends here -->

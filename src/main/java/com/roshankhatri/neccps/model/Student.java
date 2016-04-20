@@ -10,11 +10,10 @@ public class Student {
 	private String firstname;
 	private String lastname;
 	@JsonIgnore
-	private Thesis thesis;
-	@JsonIgnore
 	private Batch batch;
 	private Parent parent;
 	private Degree degree;
+	private ThesisM thesism;
 	private Long payableAmount;
 	private Long issueableBooks;
 	private Address address;
@@ -25,7 +24,8 @@ public class Student {
 	private Set<IssueReturn> issueReturns=new HashSet<IssueReturn>();
 	@JsonIgnore
 	private Set<ExamResult> examResults=new HashSet<ExamResult>();
-	
+	@JsonIgnore
+	private Set<Thesis> thesisHistory=new HashSet<Thesis>();
 	public long getId() {
 		return id;
 	}
@@ -43,12 +43,6 @@ public class Student {
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}
-	public Thesis getThesis() {
-		return thesis;
-	}
-	public void setThesis(Thesis thesis) {
-		this.thesis = thesis;
 	}
 	public Batch getBatch() {
 		return batch;
@@ -109,6 +103,18 @@ public class Student {
 	}
 	public void setDegree(Degree degree) {
 		this.degree = degree;
+	}
+	public ThesisM getThesism() {
+		return thesism;
+	}
+	public void setThesism(ThesisM thesism) {
+		this.thesism = thesism;
+	}
+	public Set<Thesis> getThesisHistory() {
+		return thesisHistory;
+	}
+	public void setThesisHistory(Set<Thesis> thesisHistory) {
+		this.thesisHistory = thesisHistory;
 	}
 
 }

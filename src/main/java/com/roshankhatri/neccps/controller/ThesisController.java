@@ -55,6 +55,9 @@ public class ThesisController {
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
+		if(student.getThesism().getThesisName()=="NULL"){
+			return "Thesis/addNameFirst";
+		}
 		model.addAttribute("student", student);
 		List<String> states=new LinkedList<>(Arrays.asList(new String[]{
 				"Initial","Proposal","Proposal Defense","Pre Defense","Final Defense","Submission"

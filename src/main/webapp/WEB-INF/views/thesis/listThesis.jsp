@@ -8,7 +8,6 @@
 			<thead>
 				<tr>
 					<th>S.No</th>
-					<th>Thesis Name</th>
 					<th>Thesis Year</th>
 					<th>Thesis State</th>
 					<sec:authorize access="hasRole('THESIS') or hasRole('ADMIN')">
@@ -20,7 +19,6 @@
 				<c:forEach items="${thesises}" var="thesis" varStatus="thecount"> 
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
-						<td><c:out value="${thesis.thesisName}" /></td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${thesis.thesisYear}" /></td>
 						<td><c:out value="${thesis.thesisState}"/></td>
 						<sec:authorize access="hasRole('THESIS') or hasRole('ADMIN')">

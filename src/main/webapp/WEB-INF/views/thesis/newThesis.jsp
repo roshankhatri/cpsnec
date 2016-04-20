@@ -1,15 +1,12 @@
 <%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">new Thesis: <c:out value="${student.firstname} ${student.lastname}"></c:out></div>
+	<div class="panel-heading">Thesis:<c:out value="${student.thesism.thesisName}"/></div>
 	<!--panel body starts here-->
 	<div class="panel-body">
+		 <h5>Student Name:  <c:out value="${student.firstname} ${student.lastname}"/></h5>
 		<!--form starts here-->
 		<form:form method="POST" action="/neccps/Thesis/add" commandName="thesis">
 			<input type="hidden" name="studentId" value="${student.id}"> 
-			<div class="form-group">
-				<form:label path="thesisName">Thesis Name</form:label>
-				<form:input path="thesisName" cssClass="form-control" />
-			</div>
 			<div class="form-group">
 				<form:label path="thesisYear">Thesis Year</form:label>
 				<form:input path="thesisYear" cssClass="form-control" id="popupDatepicker"/>

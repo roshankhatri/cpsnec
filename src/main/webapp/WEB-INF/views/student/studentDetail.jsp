@@ -58,7 +58,7 @@
 						</tr>
 						<tr>
 							<td>Thesis</td>
-							<td><c:out value="${student.thesis.thesisName}" /></td>
+							<td><c:out value="${thesism.thesisName}" /></td>
 						</tr>
 						<c:forEach items="${student.payments}" var="pay">
 						<tr>

@@ -5,20 +5,18 @@
 <hibernate-mapping>
     <class name="com.roshankhatri.neccps.model.Thesis" table="THESIS">
         <id name="id" type="long">
-            <column name="STUDENT_ID" />
-            <generator class="foreign">
-            	<param name="property">student</param>
-            </generator>
+            <column name="THESIS_ID" />
+            <generator class="identity"/>
         </id>
-        <property name="thesisName" type="java.lang.String">
-            <column name="THESISNAME" />
-        </property>
+        <many-to-one name="student" class="com.roshankhatri.neccps.model.Student"
+			fetch="join">
+			<column name="STUDENT_ID" />
+		</many-to-one>
         <property name="thesisYear" type="java.util.Date">
             <column name="THESISYEAR" />
         </property>
         <property name="thesisState" type="java.lang.String">
             <column name="THESISSTATE" />
         </property>
-        <one-to-one name="student" class="com.roshankhatri.neccps.model.Student" constrained="true"/>
     </class>
 </hibernate-mapping>

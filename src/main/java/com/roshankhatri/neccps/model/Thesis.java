@@ -6,7 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Thesis {
 	private long id;
-	private String thesisName;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date thesisYear;
 	private String thesisState;
@@ -17,12 +16,6 @@ public class Thesis {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public String getThesisName() {
-		return thesisName;
-	}
-	public void setThesisName(String thesisName) {
-		this.thesisName = thesisName;
 	}
 	public Date getThesisYear() {
 		return thesisYear;
