@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.roshankhatri.neccps.dao.CourseDao;
 import com.roshankhatri.neccps.dao.ExamResultDao;
 import com.roshankhatri.neccps.dao.StudentDao;
+import com.roshankhatri.neccps.model.Course;
 import com.roshankhatri.neccps.model.ExamResult;
 import com.roshankhatri.neccps.model.Student;
 
@@ -26,6 +28,9 @@ public class ExamResultController {
 	@Autowired
 	private ExamResultDao examResultDao;
 	
+	@Autowired
+	private CourseDao courseDao;
+	
 	@RequestMapping(value={"/","/list"},method=RequestMethod.GET)
 	public String listallpayment(Model model){
 		List<ExamResult> examResults=examResultDao.listall();
@@ -35,6 +40,10 @@ public class ExamResultController {
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
+		long programId=student.getBatch().getProgram().getId();
+		System.out.println(programId);
+		List<Course> courses=courseDao.findByProgram(programId);
+		model.addAttribute("courses", courses);
 		model.addAttribute("student", student);
 		model.addAttribute("examResult", new ExamResult());
 		return "examresult/newExamResult";

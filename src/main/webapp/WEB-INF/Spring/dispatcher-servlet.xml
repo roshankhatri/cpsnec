@@ -44,6 +44,7 @@
 				<value>LibraryIssueReturn.hbm.xml</value>
 				<value>IssueReturn.hbm.xml</value>
 				<value>ExamResult.hbm.xml</value>
+				<value>Course.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -82,6 +83,10 @@
 	</bean>
 	
 	<bean id="thesisDao" class="com.roshankhatri.neccps.dao.ThesisDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="courseDao" class="com.roshankhatri.neccps.dao.CourseDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

@@ -7,6 +7,7 @@ public class Program {
 	private long id;
 	private String programName;
 	private Set<Batch> batches=new HashSet<Batch>();
+	private Set<Course> courses=new HashSet<Course>();
 	
 	public long getId() {
 		return id;
@@ -29,6 +30,12 @@ public class Program {
 	public void addBatch(Batch batchItem){
 		batchItem.setProgram(this);
 		batches.add(batchItem);
+	}
+	public Set<Course> getCourses() {
+		return courses;
+	}
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
 	}
 
 }

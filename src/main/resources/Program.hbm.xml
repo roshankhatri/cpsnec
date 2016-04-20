@@ -17,5 +17,11 @@
             </key>
             <one-to-many class="com.roshankhatri.neccps.model.Batch" />
         </set>
+           <set name="courses" table="COURSE" inverse="true" lazy="false" cascade="all">
+            <key>
+                <column name="PROGRAM_ID" />
+            </key>
+            <one-to-many class="com.roshankhatri.neccps.model.Course" />
+        </set>
     </class>
 </hibernate-mapping>

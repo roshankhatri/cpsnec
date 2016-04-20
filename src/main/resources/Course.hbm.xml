@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2016 1:43:20 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.roshankhatri.neccps.model.Course" table="COURSE">
+		<id name="id" type="long">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="courseCode" type="java.lang.String">
+			<column name="COURSECODE" />
+		</property>
+		<property name="courseTitle" type="java.lang.String">
+			<column name="COURSETITLE" />
+		</property>
+		<property name="credit" type="java.lang.String">
+			<column name="CREDIT" />
+		</property>
+		<property name="semester" type="java.lang.Long">
+			<column name="SEMESTER" />
+		</property>
+		<many-to-one name="program" class="com.roshankhatri.neccps.model.Program"
+			fetch="join">
+			<column name="PROGRAM_ID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -40,7 +40,7 @@ public class ThesisController {
 		model.addAttribute("student",thesisDao.getById(thesisId).getStudent());
 		model.addAttribute("thesis", thesisDao.getById(thesisId));
 		List<String> states=new LinkedList<>(Arrays.asList(new String[]{
-				"Initial","PreDefense","Defense","MidTerm","PreFinal","Final","Commit"
+				"Initial","Proposal","Proposal Defense","Pre Defense","Final Defense","Submission"
 		}));
 		model.addAttribute("states", states);
 		return "thesis/updateThesis";
@@ -56,12 +56,8 @@ public class ThesisController {
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
 		model.addAttribute("student", student);
-		List<String> years=new LinkedList<>(Arrays.asList(new String[]{
-				"2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2025"
-		}));
-		model.addAttribute("years", years);
 		List<String> states=new LinkedList<>(Arrays.asList(new String[]{
-				"Initial","PreDefense","Defense","MidTerm","PreFinal","Final","Commit"
+				"Initial","Proposal","Proposal Defense","Pre Defense","Final Defense","Submission"
 		}));
 		model.addAttribute("states", states);
 		model.addAttribute("thesis", new Thesis());
