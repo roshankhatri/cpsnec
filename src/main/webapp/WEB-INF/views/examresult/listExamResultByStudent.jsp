@@ -9,7 +9,6 @@
 			<thead>
 				<tr>
 					<th>S.No</th>
-					<th>Year</th>
 					<th>Subject</th>
 					<th>Semester</th>
 					<th>Grade</th>
@@ -19,9 +18,8 @@
 				<c:forEach items="${examResults}" var="examResult" varStatus="thecount"> 
 					<tr>
 						<td><c:out value="${thecount.count}" /></td>
-						<td><c:out value="${examResult.year}" /></td>
-						<td><c:out value="${examResult.semseter}"/></td>
 						<td><c:out value="${examResult.subject}"/></td>
+						<td><c:out value="${examResult.semseter}"/></td>
 						<td><c:out value="${examResult.grade}"/></td>
 					</tr>
 				</c:forEach>

@@ -8,11 +8,14 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <property name="year" type="java.lang.Long">
-            <column name="YEAR" />
-        </property>
         <property name="semseter" type="java.lang.Long">
             <column name="SEMSETER" />
+        </property>
+          <property name="code" type="java.lang.String">
+            <column name="CODE" />
+        </property>
+          <property name="credit" type="java.lang.Long">
+            <column name="CREDIT" />
         </property>
         <property name="subject" type="java.lang.String">
             <column name="SUBJECT" />

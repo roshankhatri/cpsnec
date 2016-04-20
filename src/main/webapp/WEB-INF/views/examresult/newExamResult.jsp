@@ -15,16 +15,8 @@
 			commandName="examResult">
 			<input type="hidden" name="studentId" value="${student.id}">
 			<div class="form-group">
-				<form:label path="year">Year</form:label>
-				<form:input path="year" cssClass="form-control" />
-			</div>
-			<div class="form-group">
-				<form:label path="semseter">Semester</form:label>
-				<form:input path="semseter" cssClass="form-control" />
-			</div>
-			<div class="form-group">
 				<form:label path="subject">Subject</form:label>
-				<form:select path="subject" cssClass="selectpicker">
+				<form:select path="subject" cssClass="selectpicker" data-width="75%" data-header="Select a Subject">
 					<c:forEach items="${courses}" var="course">
 						<option value="${course.id}"><c:out value="${course.courseTitle}"/></option>
 					</c:forEach>
@@ -32,7 +24,11 @@
 			</div>
 			<div class="form-group">
 				<form:label path="grade">Grade</form:label>
-				<form:input path="grade" cssClass="form-control" />
+				<form:select path="grade" cssClass="selectpicker show-menu-arrow" items="${grades}" data-width="75%" data-header="Select Grade"/>
+			</div>
+			<div class="form-group">
+				<form:label path="enteredDate">Entered Date</form:label>
+				<form:input path="enteredDate" cssClass="form-control" id="popupDatepicker" placeholder="Select date"/>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">Submit</button>

@@ -29,5 +29,21 @@ public class CourseDaoImpl implements CourseDao {
 		transaction.commit();
 		return courses;
 	}
+
+	@Override
+	public Course getById(long courseId) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		Course course = (Course) session.get(Course.class, courseId);
+		transaction.commit();
+		return course;
+	}
+
+	@Override
+	public Course getByCourseTitle(String courseTitle) {
+		Session session=this.sessionFactory.getCurrentSession();
+		Transaction transaction=session.beginTransaction();
+		return null;
+	}
 	
 }

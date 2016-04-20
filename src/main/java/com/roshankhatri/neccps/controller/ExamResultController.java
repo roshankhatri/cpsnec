@@ -1,5 +1,7 @@
 package com.roshankhatri.neccps.controller;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,10 @@ public class ExamResultController {
 		List<Course> courses=courseDao.findByProgram(programId);
 		model.addAttribute("courses", courses);
 		model.addAttribute("student", student);
+		List<String> grades=new LinkedList<>(Arrays.asList(new String[]{
+				"A","A-","B+","B","B-","C+","C","C-","D+","D"
+		}));
+		model.addAttribute("grades", grades);
 		model.addAttribute("examResult", new ExamResult());
 		return "examresult/newExamResult";
 	}
@@ -52,6 +58,12 @@ public class ExamResultController {
 	public String addpaymentpost(@ModelAttribute("examResult") ExamResult examResult,@RequestParam("studentId") long studentId){
 		Student student=studentDao.getById(studentId);
 		examResult.setStudent(student);
+		Long courseId=Long.parseLong(examResult.getSubject());
+		System.out.println(courseId);
+		Course course=courseDao.getById(courseId);
+		examResult.setSubject(course.getCourseTitle());
+		examResult.setCode(course.getCourseCode());
+		examResult.setSemseter(course.getSemester());
 		examResultDao.save(examResult);
 		long studentId1=student.getId();
 		return "redirect:/ExamResult/view/"+studentId1;		
