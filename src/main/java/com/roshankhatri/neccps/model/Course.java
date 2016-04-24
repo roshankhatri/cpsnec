@@ -4,7 +4,7 @@ public class Course {
 	private long id;
 	private String courseCode;
 	private String courseTitle;
-	private String credit;
+	private Long credit;
 	private Long semester;
 	private Program program;
 	
@@ -26,12 +26,7 @@ public class Course {
 	public void setCourseTitle(String courseTitle) {
 		this.courseTitle = courseTitle;
 	}
-	public String getCredit() {
-		return credit;
-	}
-	public void setCredit(String credit) {
-		this.credit = credit;
-	}
+	
 	public Program getProgram() {
 		return program;
 	}
@@ -43,6 +38,12 @@ public class Course {
 	}
 	public void setSemester(Long semester) {
 		this.semester = semester;
+	}
+	public Long getCredit() {
+		return credit;
+	}
+	public void setCredit(Long credit) {
+		this.credit = credit;
 	}
 
 }

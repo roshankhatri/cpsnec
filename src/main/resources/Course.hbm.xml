@@ -14,7 +14,7 @@
 		<property name="courseTitle" type="java.lang.String">
 			<column name="COURSETITLE" />
 		</property>
-		<property name="credit" type="java.lang.String">
+		<property name="credit" type="java.lang.Long">
 			<column name="CREDIT" />
 		</property>
 		<property name="semester" type="java.lang.Long">

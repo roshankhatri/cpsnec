@@ -55,16 +55,19 @@ public class ThesisController {
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
-		if(student.getThesism().getThesisName()=="NULL"){
-			return "Thesis/addNameFirst";
+		if(student.getThesism().getThesisName()!=null && !student.getThesism().getThesisName().isEmpty()){
+			model.addAttribute("student", student);
+			List<String> states=new LinkedList<>(Arrays.asList(new String[]{
+					"Initial","Proposal","Proposal Defense","Pre Defense","Final Defense","Submission"
+			}));
+			model.addAttribute("states", states);
+			model.addAttribute("thesis", new Thesis());
+			return "thesis/newThesis";
 		}
-		model.addAttribute("student", student);
-		List<String> states=new LinkedList<>(Arrays.asList(new String[]{
-				"Initial","Proposal","Proposal Defense","Pre Defense","Final Defense","Submission"
-		}));
-		model.addAttribute("states", states);
-		model.addAttribute("thesis", new Thesis());
-		return "thesis/newThesis";
+		else
+		{
+			return "thesis/addNameFirst";
+		}
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addpaymentpost(@ModelAttribute("thesis") Thesis thesis, @RequestParam("studentId") long studentId){

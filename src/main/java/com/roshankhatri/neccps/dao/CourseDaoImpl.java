@@ -41,8 +41,6 @@ public class CourseDaoImpl implements CourseDao {
 
 	@Override
 	public Course getByCourseTitle(String courseTitle) {
-		Session session=this.sessionFactory.getCurrentSession();
-		Transaction transaction=session.beginTransaction();
 		return null;
 	}
 	

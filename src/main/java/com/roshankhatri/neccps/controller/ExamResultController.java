@@ -64,6 +64,7 @@ public class ExamResultController {
 		examResult.setSubject(course.getCourseTitle());
 		examResult.setCode(course.getCourseCode());
 		examResult.setSemseter(course.getSemester());
+		examResult.setCredit(course.getCredit());
 		examResultDao.save(examResult);
 		long studentId1=student.getId();
 		return "redirect:/ExamResult/view/"+studentId1;		
