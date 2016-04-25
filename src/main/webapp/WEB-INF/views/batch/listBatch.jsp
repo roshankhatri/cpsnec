@@ -8,14 +8,16 @@
 			<thead>
 				<tr>
 					<th>S.No</th>
+					<th>Program</th>
 					<th>Batch Year</th>
 					<th>Batch Intake</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${batches}" var="batch">
+				<c:forEach items="${batches}" var="batch" varStatus="b">
 					<tr>
-						<td><c:out value="${batch.id}" /></td>
+						<td><c:out value="${b.count}" /></td>
+						<td><c:out value="${batch.program.programName}"/></td>
 						<td><c:out value="${batch.batchYear}" /></td>
 						<td><c:out value="${batch.batchIntake}"/></td>
 					</tr>
@@ -27,6 +29,7 @@
 			<h4>No batches have been added to the System</h4>
 		</c:otherwise>
 	</c:choose>
+	<a href='<spring:url value="/Program/"></spring:url>' class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</div>
 </div>
 <%@ include file="../includes/footer.jsp"%>

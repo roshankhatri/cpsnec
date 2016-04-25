@@ -44,6 +44,7 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
+		<a href='<spring:url value="/Program/"></spring:url>' class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</div>
 </div>
 
