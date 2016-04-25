@@ -73,6 +73,7 @@
 				<h4>No Student Detail available</h4>
 			</c:otherwise>
 		</c:choose>
+		<a href='<spring:url value="/Student/"></spring:url>' class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</div>
 </div>
 <%@ include file="../includes/footer.jsp"%>

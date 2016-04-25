@@ -29,6 +29,7 @@
 		<h4>No Exam Results have been added to the System</h4>
 	</c:otherwise>
 	</c:choose>
+	<a href='<spring:url value="/Student/"></spring:url>' class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</div>
 </div>
 <%@ include file="../includes/footer.jsp"%>
