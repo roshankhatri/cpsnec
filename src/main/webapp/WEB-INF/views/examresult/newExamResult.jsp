@@ -35,8 +35,45 @@
 			</div>
 			<!-- form ends here -->
 		</form:form>
-		<!--panel body ends here  -->
+		
+		<c:choose>
+		<c:when test="${! empty examResults}">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>S.No</th>
+					<th>Course Code</th>
+					<th>Course Credit</th>
+					<th>Course Title</th>
+					<th>Semester</th>
+					<th>Grade</th>
+					<th>Entered On</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${examResults}" var="examResult" varStatus="thecount"> 
+					<tr>
+						<td><c:out value="${thecount.count}" /></td>
+						<td><c:out value="${examResult.code}"/></td>
+						<td><c:out value="${examResult.credit}"/></td>
+						<td><c:out value="${examResult.subject}"/></td>
+						<td><c:out value="${examResult.semseter}"/></td>
+						<td><c:out value="${examResult.grade}"/></td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${examResult.enteredDate}"/></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		</c:when>
+		<c:otherwise>
+		<h4>No Exam Results Added for<c:out value="${student.firstname} ${student.lastname}"></c:out> 
+		</h4>	
+	</c:otherwise>
+	</c:choose>
+	
+	<!--panel body ends here  -->
 	</div>
+	
 	<!-- panel ends  -->
 </div>
 <%@ include file="../includes/footer.jsp"%>

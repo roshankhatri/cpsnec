@@ -59,7 +59,7 @@ public class StudentController {
 		student.setBatch(batch);
 		studentDao.save(student);
 		long batchId1=batch.getId();
-		return "redirect:/Student/view/"+batchId1;
+		return "redirect:/Student/add/"+batchId1;
 	}
 	@RequestMapping(value="/view/{batchId}",method=RequestMethod.GET)
 	public String studentview(Model model,@PathVariable long batchId){

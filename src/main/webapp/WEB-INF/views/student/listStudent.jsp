@@ -1,6 +1,10 @@
 <%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">All Students list</div>
+	<div class="panel-heading">All Students list  
+	 <div class="btn-group pull-right">
+        <a href='<spring:url value="/Student/"></spring:url>' class="btn btn-success btn-xs"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+      </div>
+    </div>
 	<div class="panel-body">
 		<c:choose>
 			<c:when test="${! empty students}">

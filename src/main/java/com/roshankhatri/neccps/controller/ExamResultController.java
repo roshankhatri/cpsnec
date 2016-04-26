@@ -43,10 +43,11 @@ public class ExamResultController {
 	public String addpaymentget(Model model,@PathVariable long studentId){
 		Student student=studentDao.getById(studentId);
 		long programId=student.getBatch().getProgram().getId();
-		System.out.println(programId);
+		List<ExamResult> examResults=examResultDao.listbyStudent(studentId);
 		List<Course> courses=courseDao.findByProgram(programId);
 		model.addAttribute("courses", courses);
 		model.addAttribute("student", student);
+		model.addAttribute("examResults", examResults);
 		List<String> grades=new LinkedList<>(Arrays.asList(new String[]{
 				"A","A-","B+","B","B-","C+","C","C-","D+","D"
 		}));
