@@ -107,5 +107,6 @@
 			</key>
 			<one-to-many class="com.roshankhatri.neccps.model.Thesis" />
 		</set>
+		<one-to-one name="account" class="com.roshankhatri.neccps.model.Account" cascade="save-update"></one-to-one>
 	</class>
 </hibernate-mapping>

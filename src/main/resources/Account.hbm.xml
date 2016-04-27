@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2016 8:04:10 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.roshankhatri.neccps.model.Account" table="ACCOUNT">
+        <id name="id" type="long">
+            <column name="STUDENT_ID" />
+            <generator class="foreign">
+            <param name="property">student</param>
+            </generator>
+        </id>
+        <property name="semesterOne" type="java.lang.Long">
+            <column name="SEMESTERONE" />
+        </property>
+        <property name="installmentOne" type="java.lang.Long">
+            <column name="INSTALLMENTONE" />
+        </property>
+        <property name="isCompleteOne" type="boolean" access="field">
+            <column name="ISCOMPLETEONE" />
+        </property>
+        <property name="semseterTwo" type="java.lang.Long">
+            <column name="SEMSETERTWO" />
+        </property>
+        <property name="installmentTwo" type="java.lang.Long">
+            <column name="INSTALLMENTTWO" />
+        </property>
+        <property name="isCompleteTwo" type="boolean" access="field">
+            <column name="ISCOMPLETETWO" />
+        </property>
+        <property name="semesterThree" type="java.lang.Long">
+            <column name="SEMESTERTHREE" />
+        </property>
+        <property name="installmentThree" type="java.lang.Long">
+            <column name="INSTALLMENTTHREE" />
+        </property>
+        <property name="isCompleteThree" type="boolean" access="field">
+            <column name="ISCOMPLETETHREE" />
+        </property>
+        <property name="semesterFour" type="java.lang.Long">
+            <column name="SEMESTERFOUR" />
+        </property>
+        <property name="installmentFour" type="java.lang.Long">
+            <column name="INSTALLMENTFOUR" />
+        </property>
+        <property name="isCompleteFour" type="boolean" access="field">
+            <column name="ISCOMPLETEFOUR" />
+        </property>
+        <one-to-one name="student" class="com.roshankhatri.neccps.model.Student" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

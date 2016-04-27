@@ -18,6 +18,7 @@ public class Student {
 	private Long issueableBooks;
 	private Address address;
 	private Contact contact;
+	private Account account;
 	@JsonIgnore
 	private Set<Payment> payments=new HashSet<Payment>();
 	@JsonIgnore
@@ -115,6 +116,12 @@ public class Student {
 	}
 	public void setThesisHistory(Set<Thesis> thesisHistory) {
 		this.thesisHistory = thesisHistory;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 }
