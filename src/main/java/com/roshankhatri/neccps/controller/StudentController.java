@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.roshankhatri.neccps.dao.BatchDao;
 import com.roshankhatri.neccps.dao.ProgramDao;
 import com.roshankhatri.neccps.dao.StudentDao;
+import com.roshankhatri.neccps.model.Account;
 import com.roshankhatri.neccps.model.Batch;
 import com.roshankhatri.neccps.model.Program;
 import com.roshankhatri.neccps.model.Student;
@@ -117,6 +118,24 @@ public class StudentController {
 		List<Student> students=studentDao.search(searchName);
 		model.addAttribute("students", students);
 		return "student/listStudent";
+	}
+	
+	@RequestMapping(value="/addAccount/{studentId}",method=RequestMethod.GET)
+	public String addAccountGet(Model model,@PathVariable long studentId){
+		Student student=studentDao.getById(studentId);
+		model.addAttribute("student", student);
+		model.addAttribute("account", new Account());
+		return "student/studentAccount";
+	}
+	
+	@RequestMapping(value="/addAccount",method=RequestMethod.POST)
+	public String addAccountPost(@ModelAttribute("account") Account account,@RequestParam long studentId){
+		Student student=studentDao.getById(studentId);
+		System.out.println(student.getId());
+		student.setAccount(account);
+		account.setStudent(student);
+		studentDao.update(student);
+		return "redirect:/Student/";
 	}
 	
 }

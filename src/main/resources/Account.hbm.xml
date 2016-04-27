@@ -46,6 +46,6 @@
         <property name="isCompleteFour" type="boolean" access="field">
             <column name="ISCOMPLETEFOUR" />
         </property>
-        <one-to-one name="student" class="com.roshankhatri.neccps.model.Student" constrained="true"></one-to-one>
+        <one-to-one name="student" class="com.roshankhatri.neccps.model.Student"></one-to-one>
     </class>
 </hibernate-mapping>
