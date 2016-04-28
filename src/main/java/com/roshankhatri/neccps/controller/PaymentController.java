@@ -1,5 +1,7 @@
 package com.roshankhatri.neccps.controller;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,10 @@ public class PaymentController {
 	public String addpaymentget(Model model, @PathVariable long studentId) {
 		Student student = studentDao.getById(studentId);
 		model.addAttribute("student", student);
+		List<String> semesters=new LinkedList<>(Arrays.asList(new String[]{
+				"1","2","3","4"
+		}));
+		model.addAttribute("semesters", semesters);
 		model.addAttribute("payment", new Payment());
 		return "payment/newPayment";
 	}
@@ -48,56 +54,79 @@ public class PaymentController {
 
 		if (sem == 1) {
 			long amt = student.getAccount().getInstallmentOne();
+			if(amt>0){
 			long diff = amt - payment.getPaidAmount();
-
-			if (diff > 0) {
+			if (diff >= 0) {
 				student.getAccount().setInstallmentOne(diff);
+				student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+				studentDao.update(student);
+				payment.setStudent(student);
+				paymentDao.save(payment);
+
 			} else {
 				student.getAccount().setCompleteOne(true);
 			}
-			student.getAccount().setInstallmentOne(diff);
-			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+			}
+			else{
+				System.out.println("already cleared semester One");
+			}
 
 		} else if (sem == 2) {
 			
 			long amt = student.getAccount().getInstallmentTwo();
+			if(amt>0){
 			long diff = amt - payment.getPaidAmount();
 			
-			if (diff > 0) {
+			if (diff >= 0) {
 				student.getAccount().setInstallmentTwo(diff);
+				student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+				studentDao.update(student);
+				payment.setStudent(student);
+				paymentDao.save(payment);
 			} else {
 				student.getAccount().setCompleteTwo(true);
 			}
-			student.getAccount().setInstallmentTwo(diff);
-			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+			}else{
+				System.out.println("already cleared semester Two");
+			}
 			
 		} else if (sem == 3) {
 			long amt = student.getAccount().getInstallmentThree();
+			if(amt> 0){
 			long diff = amt - payment.getPaidAmount();
-			if (diff > 0) {
+			if (diff >= 0) {
 				student.getAccount().setInstallmentThree(diff);
+				student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+				studentDao.update(student);
+				payment.setStudent(student);
+				paymentDao.save(payment);
 			} else {
 				student.getAccount().setCompleteThree(true);
-				student.getAccount().setInstallmentThree(diff);
 			}
-			student.getAccount().setInstallmentThree(diff);
-			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+			}else
+			{
+				System.out.println("already cleared semester Three");
+			}
 
 		} else {
 			long amt = student.getAccount().getInstallmentFour();
+			if(amt>0){
 			long diff = amt - payment.getPaidAmount();
-			if (diff > 0) {
+			if (diff >= 0) {
 				student.getAccount().setInstallmentFour(diff);
+				student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+				studentDao.update(student);
+				payment.setStudent(student);
+				paymentDao.save(payment);
+
 			} else {
 				student.getAccount().setCompleteFour(true);
-				student.getAccount().setInstallmentFour(diff);
 			}
-			student.getAccount().setInstallmentFour(diff);
-			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+			}
+			else{
+				System.out.println("already cleared semester Four");
+			}
 		}
-		studentDao.update(student);
-		payment.setStudent(student);
-		paymentDao.save(payment);
 		long studentId1 = student.getId();
 		return "redirect:/Payment/view/" + studentId1;
 	}

@@ -13,7 +13,7 @@
 			</div>
 				<div class="form-group">
 				<form:label path="semester">Paid for Semester</form:label>
-				<form:input path="semester" cssClass="form-control" />
+				<form:select path="semester" cssClass="selectpicker" items="${semesters}"/>
 			</div>
 			<div class="form-group">
 				<form:label path="paidDate">Paid Date</form:label>

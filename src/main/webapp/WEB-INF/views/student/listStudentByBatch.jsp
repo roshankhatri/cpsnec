@@ -32,7 +32,6 @@
 						</td>
 						<td>
 							<sec:authorize access="hasRole('PAY') or hasRole('ADMIN')">
-							<a href='<spring:url value="/Student/addAccount/${student.id}"></spring:url>'><span class="glyphicon glyphicon-arrow-left"></span></a>
 							<a href='<spring:url value="/Payment/add/${student.id}"></spring:url>'><span class="glyphicon glyphicon-plus"></span></a>
 							</sec:authorize>
 							<sec:authorize access="hasRole('VIEW') or hasRole('ADMIN')">

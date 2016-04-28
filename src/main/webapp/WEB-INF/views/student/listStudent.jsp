@@ -1,10 +1,13 @@
 <%@ include file="../includes/header.jsp"%>
 <div class="panel panel-primary">
-	<div class="panel-heading">All Students list  
-	 <div class="btn-group pull-right">
-        <a href='<spring:url value="/Student/"></spring:url>' class="btn btn-success btn-xs"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-      </div>
-    </div>
+	<div class="panel-heading">
+		All Students list
+		<div class="btn-group pull-right">
+			<a href='<spring:url value="/Student/"></spring:url>'
+				class="btn btn-success btn-xs"><span
+				class="glyphicon glyphicon-arrow-left"></span> Back</a>
+		</div>
+	</div>
 	<div class="panel-body">
 		<c:choose>
 			<c:when test="${! empty students}">
@@ -42,6 +45,12 @@
 									</sec:authorize></td>
 								<td><sec:authorize
 										access="hasRole('PAY') or hasRole('ADMIN')">
+										<c:if test="${empty student.account.id}">
+										<a
+											href='<spring:url value="/Student/addAccount/${student.id}"></spring:url>'><span
+											class="glyphicon glyphicon-log-in"></span></a>
+										</c:if>
+
 										<a
 											href='<spring:url value="/Payment/add/${student.id}"></spring:url>'><span
 											class="glyphicon glyphicon-plus"></span></a>
@@ -89,7 +98,9 @@
 				<h4>No Students have been added to the System</h4>
 			</c:otherwise>
 		</c:choose>
-	<a href='<spring:url value="/Student/"></spring:url>' class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+		<a href='<spring:url value="/Student/"></spring:url>'
+			class="btn btn-success"><span
+			class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	</div>
 </div>
 <%@ include file="../includes/footer.jsp"%>
