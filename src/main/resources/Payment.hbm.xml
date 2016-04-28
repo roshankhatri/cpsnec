@@ -14,6 +14,9 @@
         <property name="paidDate" type="java.util.Date">
             <column name="PAIDDATE" />
         </property>
+        <property name="semester" type="java.lang.Long">
+            <column name="SEMESTER" />
+        </property>
         <many-to-one name="student" class="com.roshankhatri.neccps.model.Student" fetch="join">
             <column name="STUDENT_ID" />
         </many-to-one>

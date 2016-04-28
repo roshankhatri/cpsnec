@@ -17,6 +17,7 @@
 					<tr>
 						<th>S.No</th>
 						<th>Paid Amount</th>
+						<th>Semester</th>
 						<th>Paid Date</th>
 						</tr>
 					</thead>
@@ -25,11 +26,24 @@
 							<tr>
 								<td><c:out value="${thecount.count}" /></td>
 								<td><c:out value="${payment.paidAmount}" /></td>
+								<td><c:out value="${payment.semester}"/></td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${payment.paidDate}" /></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+				<c:if test="${student.account.installmentOne==0}">
+					<button class="btn btn-primary"> Semester One <span class="glyphicon glyphicon-ok"> </span></button>
+				</c:if>
+				<c:if test="${student.account.installmentTwo==0}">
+					<button class="btn btn-primary"> Semester Two <span class="glyphicon glyphicon-ok"> </span></button>
+				</c:if>
+				<c:if test="${student.account.installmentThree==0}">
+					<button class="btn btn-primary"> Semester Three <span class="glyphicon glyphicon-ok"> </span></button>
+				</c:if>
+				<c:if test="${student.account.installmentFour==0}">
+					<button class="btn btn-primary"> Semester Four <span class="glyphicon glyphicon-ok"> </span></button>
+				</c:if>
 			</c:when>
 			<c:otherwise>
 				<h4>

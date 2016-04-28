@@ -11,6 +11,10 @@
 				<form:label path="paidAmount">Paid Amount</form:label>
 				<form:input path="paidAmount" cssClass="form-control" />
 			</div>
+				<div class="form-group">
+				<form:label path="semester">Paid for Semester</form:label>
+				<form:input path="semester" cssClass="form-control" />
+			</div>
 			<div class="form-group">
 				<form:label path="paidDate">Paid Date</form:label>
 				<form:input path="paidDate" cssClass="form-control" id="popupDatepicker" />

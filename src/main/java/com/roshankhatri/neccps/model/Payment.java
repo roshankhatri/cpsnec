@@ -9,6 +9,7 @@ public class Payment {
 	private Long paidAmount;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date paidDate;
+	private Long semester;
 	private Student student;
 	
 	public long getAccountPaymentId() {
@@ -34,6 +35,12 @@ public class Payment {
 	}
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+	public Long getSemester() {
+		return semester;
+	}
+	public void setSemester(Long semester) {
+		this.semester = semester;
 	}
 
 }

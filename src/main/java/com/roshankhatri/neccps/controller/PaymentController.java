@@ -21,44 +21,93 @@ import com.roshankhatri.neccps.model.Student;
 public class PaymentController {
 	@Autowired
 	private StudentDao studentDao;
-	
+
 	@Autowired
 	private PaymentDao paymentDao;
-	
-	@RequestMapping(value={"/","/list"},method=RequestMethod.GET)
-	public String listallpayment(Model model){
-		List<Payment> payments=paymentDao.listall();
+
+	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+	public String listallpayment(Model model) {
+		List<Payment> payments = paymentDao.listall();
 		model.addAttribute("payments", payments);
 		return "payment/listPayment";
 	}
-	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
-	public String addpaymentget(Model model,@PathVariable long studentId){
-		Student student=studentDao.getById(studentId);
+
+	@RequestMapping(value = "/add/{studentId}", method = RequestMethod.GET)
+	public String addpaymentget(Model model, @PathVariable long studentId) {
+		Student student = studentDao.getById(studentId);
 		model.addAttribute("student", student);
 		model.addAttribute("payment", new Payment());
 		return "payment/newPayment";
 	}
-	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String addpaymentpost(@ModelAttribute("payment") Payment payment,@RequestParam("studentId") long studentId){
-		Student student=studentDao.getById(studentId);
-		long payableAmount=student.getPayableAmount();
-		long paidAmount=payment.getPaidAmount();
-		long diff=payableAmount-paidAmount;
-		if(diff>0){
-			student.setPayableAmount(diff);
-			studentDao.update(student);
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String addpaymentpost(@ModelAttribute("payment") Payment payment,
+			@RequestParam("studentId") long studentId) {
+		Student student = studentDao.getById(studentId);
+		long sem = payment.getSemester();
+
+		if (sem == 1) {
+			long amt = student.getAccount().getInstallmentOne();
+			long diff = amt - payment.getPaidAmount();
+
+			if (diff > 0) {
+				student.getAccount().setInstallmentOne(diff);
+			} else {
+				student.getAccount().setCompleteOne(true);
+			}
+			student.getAccount().setInstallmentOne(diff);
+			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+
+		} else if (sem == 2) {
+			
+			long amt = student.getAccount().getInstallmentTwo();
+			long diff = amt - payment.getPaidAmount();
+			
+			if (diff > 0) {
+				student.getAccount().setInstallmentTwo(diff);
+			} else {
+				student.getAccount().setCompleteTwo(true);
+			}
+			student.getAccount().setInstallmentTwo(diff);
+			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+			
+		} else if (sem == 3) {
+			long amt = student.getAccount().getInstallmentThree();
+			long diff = amt - payment.getPaidAmount();
+			if (diff > 0) {
+				student.getAccount().setInstallmentThree(diff);
+			} else {
+				student.getAccount().setCompleteThree(true);
+				student.getAccount().setInstallmentThree(diff);
+			}
+			student.getAccount().setInstallmentThree(diff);
+			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
+
+		} else {
+			long amt = student.getAccount().getInstallmentFour();
+			long diff = amt - payment.getPaidAmount();
+			if (diff > 0) {
+				student.getAccount().setInstallmentFour(diff);
+			} else {
+				student.getAccount().setCompleteFour(true);
+				student.getAccount().setInstallmentFour(diff);
+			}
+			student.getAccount().setInstallmentFour(diff);
+			student.setPayableAmount(student.getPayableAmount()-payment.getPaidAmount());
 		}
+		studentDao.update(student);
 		payment.setStudent(student);
 		paymentDao.save(payment);
-		long studentId1=student.getId();
-		return "redirect:/Payment/view/"+studentId1;		
-	}	
-	@RequestMapping(value="/view/{studentId}",method=RequestMethod.GET)
-	public String listbystudent(Model model,@PathVariable long studentId){
-		List<Payment> payments=paymentDao.listbyStudent(studentId);
+		long studentId1 = student.getId();
+		return "redirect:/Payment/view/" + studentId1;
+	}
+
+	@RequestMapping(value = "/view/{studentId}", method = RequestMethod.GET)
+	public String listbystudent(Model model, @PathVariable long studentId) {
+		List<Payment> payments = paymentDao.listbyStudent(studentId);
 		model.addAttribute("student", studentDao.getById(studentId));
 		model.addAttribute("payments", payments);
-		return "payment/listPaymentByStudent"; 
+		return "payment/listPaymentByStudent";
 	}
 
 }
