@@ -24,5 +24,8 @@
 			the M.Sc. programs is two years spread over four academic sessions.
 			The three semesters are for course work and the last semester is
 			solely dedicated for an independent research.</p>
+		<p>
+			<a class="btn btn-success" href='<spring:url value="/login"></spring:url>'>Enter nec CPS SIS</a>
 	</div>
+	
 	<%@ include file="includes/footer.jsp"%>
