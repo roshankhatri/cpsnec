@@ -29,9 +29,9 @@ public class PaymentController {
 
 	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
 	public String listallpayment(Model model) {
-		List<Payment> payments = paymentDao.listall();
-		model.addAttribute("payments", payments);
-		return "payment/listPayment";
+		//List<Payment> payments = paymentDao.listall();
+		//model.addAttribute("payments", payments);
+		return "payment/paymentIntro";
 	}
 
 	@RequestMapping(value = "/add/{studentId}", method = RequestMethod.GET)
