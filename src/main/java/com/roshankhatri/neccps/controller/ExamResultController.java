@@ -35,9 +35,9 @@ public class ExamResultController {
 	
 	@RequestMapping(value={"/","/list"},method=RequestMethod.GET)
 	public String listallpayment(Model model){
-		List<ExamResult> examResults=examResultDao.listall();
-		model.addAttribute("examResults", examResults);
-		return "examresult/listExamResult";
+		//List<ExamResult> examResults=examResultDao.listall();
+		//model.addAttribute("examResults", examResults);
+		return "examresult/examIntro";
 	}
 	@RequestMapping(value="/add/{studentId}", method=RequestMethod.GET)
 	public String addpaymentget(Model model,@PathVariable long studentId){
